@@ -1,0 +1,21 @@
+---
+title: "Presentations"
+format: html
+---
+
+| date       | title                                                                                    | preview
+|------------|------------------------------------------------------------------------------------------|---------
+| 2021-10-06 | [Dataframes - Why data scientists don't use SQL](https://slides.com/andimai/dataframes) | <iframe src="https://slides.com/andimai/dataframes/embed?style=light" width="210rem" height="150rem" title="dataframes"> </iframe> |
+| 2020-11-18 | [Streamlit.io - A first look](https://slides.com/andimai/streamlit) | |
+| 2019-03-12 | [Test Driven Development für Datenwissenschaftler](https://slides.com/andimai/test-driven-development) | |
+| 2018-12-19 | [Continuous Delivery für Datenwissenschaftler](https://slides.com/andimai/continuous-delivery) | |
+| 2018-01-16 | [Python Type Hints](https://gist.github.com/asmaier/f2577460efa6270bdfc47738becc80a8)| <iframe src="python_type_hints"></iframe> |
+| 2017-10-17 | [Investigate political landscape (using Wahl-O-Mat data)](https://gist.github.com/asmaier/1e38c07464a2cf50e7180b159f74faa8) | |
+| 2015-08-29 | [Wir sind Bild!](https://gist.github.com/asmaier/932d08c5c96a2cd76f71) | |
+| 2015-04-09 | [Kanban vs. Scrum](https://slides.com/andimai/kanban-vs-scrum) | |
+| 2015-04-09 | [Was ist Kanban](https://slides.com/andimai/was-ist-kanban) | |
+: {tbl-colwidths="[15,55,30]"}
+
+
+
+
