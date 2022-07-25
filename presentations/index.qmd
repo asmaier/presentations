@@ -1,6 +1,8 @@
 ---
 title: "Presentations"
-format: html
+format: 
+    html:
+        page-layout: full
 ---
 
 | date       | title                                                                                    | preview
