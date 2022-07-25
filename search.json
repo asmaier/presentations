@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "python_type_hints/index.html#overview",
+    "href": "python_type_hints/index.html#overview",
+    "title": "Python Type Hints",
+    "section": "Overview",
+    "text": "Overview\n\nType after variable\nProblem: IDE cannot suggest variable name based on type"
+  },
+  {
+    "objectID": "python_type_hints/index.html#primitives",
+    "href": "python_type_hints/index.html#primitives",
+    "title": "Python Type Hints",
+    "section": "Primitives",
+    "text": "Primitives\nFrom\n// primitive function\ndef uga_uga(text):\nto\ndef uga_uga(text: str) -> int:\n\"\"\"\nVery primitive AI.\n:param text: Input text\n:return: Number parsed by primitive AI\n\"\"\""
+  },
+  {
+    "objectID": "python_type_hints/index.html#not-so-primitives",
+    "href": "python_type_hints/index.html#not-so-primitives",
+    "title": "Python Type Hints",
+    "section": "Not so primitives",
+    "text": "Not so primitives\nTuples, Dicts, etc…\nfrom typing import Tuple\n\ndef returns_tuple(input: str) -> Tuple[str, str]:\nVoid method\ndef i_have_side_effects(path: str) -> None:\nComplex types\nimport pyspark\nfrom pyspark.sql.column import Column\n\ndef do_stuff(sc: pyspark.SparkContext, path: str) -> Column:"
+  },
+  {
+    "objectID": "python_type_hints/index.html#default-value",
+    "href": "python_type_hints/index.html#default-value",
+    "title": "Python Type Hints",
+    "section": "Default value",
+    "text": "Default value\n\nConfusing syntax at first\n\nFrom\ndef dirty_function(cleanup=True):\nto\ndef dirty_function(cleanup: bool=True) -> Something:\nThe value of cleanup is True not the value of bool! Another disadvantage of types after variable name."
+  },
+  {
+    "objectID": "python_type_hints/index.html#conclusion-1",
+    "href": "python_type_hints/index.html#conclusion-1",
+    "title": "Python Type Hints",
+    "section": "Conclusion 1",
+    "text": "Conclusion 1\n\nCool for final documentation\nOnly type hints, but no accessibility and changeability (const vs. variable): This is not a complete compiler!\nHow to express contracts like\n\nThis function doesn’t accept None\nThis function does never return None\nThis function can throw exception ABC and DEF.\ndef convert(year, month, day) with year > 1970, 1 < month < 12, and day = 31, 30, 29 or 28 ?\nDon’t program your rocket’s software in Python, use ADA!"
+  },
+  {
+    "objectID": "python_type_hints/index.html#conclusion-2",
+    "href": "python_type_hints/index.html#conclusion-2",
+    "title": "Python Type Hints",
+    "section": "Conclusion 2",
+    "text": "Conclusion 2\n\nwouldn’t C/Java style be better?\n\ndef Tuple[str, str] returns_tuple(str:input = \"default\") :\n\nEven with a wrong type hint your code can still run.\n\nHow to maintain type hints, when refactoring the code?\nRegularly run static code analysis to detect inconsistencies: like a compiler!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "date\ntitle\npreview\n\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n \n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
