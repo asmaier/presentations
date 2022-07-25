@@ -1,5 +1,61 @@
 [
   {
+    "objectID": "wahl-o-mat-data/index.html#wahl-o-mat",
+    "href": "wahl-o-mat-data/index.html#wahl-o-mat",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Wahl-O-Mat",
+    "text": "Wahl-O-Mat\n\nhttps://www.bpb.de/politik/wahlen/wahl-o-mat/"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#modus-maierandi",
+    "href": "wahl-o-mat-data/index.html#modus-maierandi",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Modus Maierandi",
+    "text": "Modus Maierandi\n\nhttps://asmaier.blogspot.de/2011/09/berlin-wahl-2011-interessante.html\nhttps://asmaier.blogspot.de/2013/08/landtagswahl-in-bayern-2013.html\nhttps://asmaier.blogspot.de/2013/09/bundestagswahl-2013-interessante.html\nhttps://asmaier.blogspot.de/2014/05/europawahl-2014-interessante.html"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#die-faz",
+    "href": "wahl-o-mat-data/index.html#die-faz",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Die FAZ",
+    "text": "Die FAZ\n\nhttp://www.dkriesel.com/blog/2017/0903_auswertung_des_wahl-o-mats_zu_einer_parteienlandkarte\nhttp://www.dkriesel.com/blog/2017/0904_wahl-o-mat-auswertung_teil_2_thesen-_und_parteienverwandtschaften\nhttp://www.faz.net/aktuell/feuilleton/debatten/der-wahl-o-mat-und-die-aehnlichkeiten-der-parteien-15210277.html?printPagedArticle=true#pageIndex_0"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#quellen-für-wahl-o-mat-daten",
+    "href": "wahl-o-mat-data/index.html#quellen-für-wahl-o-mat-daten",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Quellen für Wahl-O-Mat Daten",
+    "text": "Quellen für Wahl-O-Mat Daten\n\nhttps://wahlometer.watch/links-und-ressourcen/\nhttps://github.com/gockelhahn/qual-o-mat-data\nhttps://rawgit.com/gockelhahn/koal-o-mat-kiss/master/index.html\nhttps://rawgit.com/gockelhahn/konsens-o-mat-kiss/master/index.html"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#beste-visualisierung",
+    "href": "wahl-o-mat-data/index.html#beste-visualisierung",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Beste Visualisierung",
+    "text": "Beste Visualisierung\n\nhttps://interaktiv.morgenpost.de/parteien-bundestagswahl-2017/\nhttps://interaktiv.morgenpost.de/parteien-bundestagswahl-2017/data/wahlomat-kandidaten-methodology.html"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#alternativen",
+    "href": "wahl-o-mat-data/index.html#alternativen",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Alternativen",
+    "text": "Alternativen\n\nhttps://deinwal.de/home\nhttps://wahlbilanz.de/2017/06/ueber-fraktionsdisziplin-und-den-koalitionsvertrag/\nhttps://wahlswiper.de/\nhttp://www.stern.de/politik/deutschland/der-wahl-o-mat-2017-und-andere-entscheidungshelfer-im-ueberblick-6703528.html"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#machine-learning-angewandt-auf-wahlprogramme",
+    "href": "wahl-o-mat-data/index.html#machine-learning-angewandt-auf-wahlprogramme",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "Machine-Learning angewandt auf Wahlprogramme",
+    "text": "Machine-Learning angewandt auf Wahlprogramme\n\nhttp://web.br.de/interaktiv/wahlprogramm-analyse-bundestagswahl/\nhttps://arxiv.org/abs/1608.02195\nhttps://www.youtube.com/watch?v=IhUSiXXg4rg"
+  },
+  {
+    "objectID": "wahl-o-mat-data/index.html#end",
+    "href": "wahl-o-mat-data/index.html#end",
+    "title": "Investigate political landscape (using Wahl-O-Mat data)",
+    "section": "End",
+    "text": "End\nOriginal presentation on github gist:\n\nInvestigate political landscape (using Wahl-O-Mat data)"
+  },
+  {
     "objectID": "python_type_hints/index.html#overview",
     "href": "python_type_hints/index.html#overview",
     "title": "Python Type Hints",
@@ -42,11 +98,18 @@
     "text": "Conclusion 2\n\nwouldn’t C/Java style be better?\n\ndef Tuple[str, str] returns_tuple(str:input = \"default\") :\n\nEven with a wrong type hint your code can still run.\n\nHow to maintain type hints, when refactoring the code?\nRegularly run static code analysis to detect inconsistencies: like a compiler!"
   },
   {
+    "objectID": "python_type_hints/index.html#end",
+    "href": "python_type_hints/index.html#end",
+    "title": "Python Type Hints",
+    "section": "End",
+    "text": "End\nOriginal presentation on github gist:\n\nPython Type Hints"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Presentations",
     "section": "",
-    "text": "date\ntitle\npreview\n\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n \n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
+    "text": "date\ntitle\npreview\n\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n\n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
   },
   {
     "objectID": "about.html",
