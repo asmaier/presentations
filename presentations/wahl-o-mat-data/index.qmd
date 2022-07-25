@@ -1,0 +1,47 @@
+---
+title: "Investigate political landscape (using Wahl-O-Mat data)"
+format: 
+    revealjs:
+        controls: true
+---
+
+## Wahl-O-Mat
+- <https://www.bpb.de/politik/wahlen/wahl-o-mat/>
+
+## Modus Maierandi
+- <https://asmaier.blogspot.de/2011/09/berlin-wahl-2011-interessante.html>
+- <https://asmaier.blogspot.de/2013/08/landtagswahl-in-bayern-2013.html>
+- <https://asmaier.blogspot.de/2013/09/bundestagswahl-2013-interessante.html>
+- <https://asmaier.blogspot.de/2014/05/europawahl-2014-interessante.html>
+
+## Die FAZ
+- <http://www.dkriesel.com/blog/2017/0903_auswertung_des_wahl-o-mats_zu_einer_parteienlandkarte>
+- <http://www.dkriesel.com/blog/2017/0904_wahl-o-mat-auswertung_teil_2_thesen-_und_parteienverwandtschaften>
+- <http://www.faz.net/aktuell/feuilleton/debatten/der-wahl-o-mat-und-die-aehnlichkeiten-der-parteien-15210277.html?printPagedArticle=true#pageIndex_0>
+
+## Quellen für Wahl-O-Mat Daten
+- <https://wahlometer.watch/links-und-ressourcen/>
+- <https://github.com/gockelhahn/qual-o-mat-data>
+- <https://rawgit.com/gockelhahn/koal-o-mat-kiss/master/index.html>
+- <https://rawgit.com/gockelhahn/konsens-o-mat-kiss/master/index.html>
+
+## Beste Visualisierung
+- <https://interaktiv.morgenpost.de/parteien-bundestagswahl-2017/>
+- <https://interaktiv.morgenpost.de/parteien-bundestagswahl-2017/data/wahlomat-kandidaten-methodology.html>
+
+## Alternativen
+- <https://deinwal.de/home>
+- <https://wahlbilanz.de/2017/06/ueber-fraktionsdisziplin-und-den-koalitionsvertrag/>
+- <https://wahlswiper.de/>
+- <http://www.stern.de/politik/deutschland/der-wahl-o-mat-2017-und-andere-entscheidungshelfer-im-ueberblick-6703528.html>
+
+## Machine-Learning angewandt auf Wahlprogramme
+- <http://web.br.de/interaktiv/wahlprogramm-analyse-bundestagswahl/>
+- <https://arxiv.org/abs/1608.02195>
+- <https://www.youtube.com/watch?v=IhUSiXXg4rg>
+
+## End
+
+Original presentation on github gist:
+
+- [Investigate political landscape (using Wahl-O-Mat data)](https://gist.github.com/asmaier/1e38c07464a2cf50e7180b159f74faa8)

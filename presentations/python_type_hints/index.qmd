@@ -85,3 +85,9 @@ def Tuple[str, str] returns_tuple(str:input = "default") :
 - Even with a wrong type hint your code can still run. 
   - How to maintain type hints, when refactoring the code?
   - Regularly run static code analysis to detect inconsistencies: like a compiler!
+
+## End
+
+Original presentation on github gist:
+
+- [Python Type Hints](https://gist.github.com/asmaier/f2577460efa6270bdfc47738becc80a8)  
