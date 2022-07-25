@@ -9,7 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.615">
 
-  <title>presentations - Python Type Hints</title>
+  <meta name="author" content="Dr.&nbsp;Andreas Maier">
+  <meta name="dcterms.date" content="2022-06-30">
+  <title>presentations - Quarto</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -22,70 +24,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -382,92 +320,150 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Python Type Hints</h1>
+  <h1 class="title">Quarto</h1>
+  <p class="subtitle">A successor to LaTeX?</p>
+  <p class="author">Dr.&nbsp;Andreas Maier</p>
+  <p class="date">2022-06-30</p>
 </section>
 
 <section id="overview" class="slide level2">
 <h2>Overview</h2>
+<p>Quarto® is an open-source scientific and technical publishing system built on Pandoc.</p>
 <ul>
-<li>Type after variable</li>
-<li>Problem: IDE cannot suggest variable name based on type</li>
+<li>Author with pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.</li>
+<li>Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF , MS Word, Powerpoint, ePub, and more.</li>
+<li>Support for interactive documents (Jupyter, Shiny, Observable)</li>
+<li>Quarto is the successor to Bookdown/Blogdown</li>
 </ul>
 </section>
-<section id="primitives" class="slide level2">
-<h2>Primitives</h2>
-<p>From</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">//</span> primitive function</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">def</span> uga_uga(text):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> uga_uga(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">"""</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">Very primitive AI.</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">:param text: Input text</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">:return: Number parsed by primitive AI</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="not-so-primitives" class="slide level2">
-<h2>Not so primitives</h2>
-<h3 id="tuples-dicts-etc">Tuples, Dicts, etc…</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> typing <span class="im">import</span> Tuple</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">def</span> returns_tuple(<span class="bu">input</span>: <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>]:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="void-method">Void method</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> i_have_side_effects(path: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="complex-types">Complex types</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> pyspark</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> pyspark.sql.column <span class="im">import</span> Column</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">def</span> do_stuff(sc: pyspark.SparkContext, path: <span class="bu">str</span>) <span class="op">-&gt;</span> Column:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="default-value" class="slide level2">
-<h2>Default value</h2>
+<section id="advantages-over-latex" class="slide level2">
+<h2>Advantages over LaTeX</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>Confusing syntax at first</li>
+<li>Create dynamic content with Python, R, Julia, and Observable.</li>
+<li>Interactive widgets (Shiny, Jupyter widgets, Observable JS)</li>
+<li>Support for many more output formats and even whole websites and blogs</li>
 </ul>
-<p>From</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> dirty_function(cleanup<span class="op">=</span><span class="va">True</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> dirty_function(cleanup: <span class="bu">bool</span><span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> Something:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The value of <code>cleanup</code> is <code>True</code> not the value of <code>bool</code>! Another disadvantage of types after variable name.</p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="vienna.jpeg"></p>
+</div>
+</div>
 </section>
-<section id="conclusion-1" class="slide level2 smaller">
-<h2>Conclusion 1</h2>
+<section id="disadvantages-over-latex" class="slide level2">
+<h2>Disadvantages over LaTeX</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>Cool for final documentation</li>
-<li>Only type hints, but no accessibility and changeability (const vs.&nbsp;variable): This is not a complete compiler!</li>
-<li>How to express contracts like
+<li>Pandoc markdown is not a (Turing-) complete programming language</li>
+<li>LaTeX is “the specialist” for print output</li>
+<li>LaTeX is established since 40 years</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="mnras.jpeg"></p>
+</div>
+</div>
+</section>
+<section id="disadvantages-over-wordpowerpointkeynote" class="slide level2">
+<h2>Disadvantages over Word/Powerpoint/Keynote</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
-<li>This function doesn’t accept None</li>
-<li>This function does never return None</li>
-<li>This function can throw exception ABC and DEF.</li>
-<li>def convert(year, month, day) with year &gt; 1970, 1 &lt; month &lt; 12, and day = 31, 30, 29 or 28 ?</li>
-<li>Don’t program your rocket’s software in Python, use ADA!</li>
+<li>No realtime layout changes (fonts, colors, etc.)</li>
+<li>No realtime positioning of images</li>
+<li>No advanced animations</li>
+<li>Less advanced spell/grammer checker</li>
+<li>Slower creation of image-heavy documents</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="1052px-Word_win_1906.png"></p>
+</div>
+</div>
+</section>
+<section id="advantages-over-wordpowerpointkeynote" class="slide level2">
+<h2>Advantages over Word/Powerpoint/Keynote</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>Free, no vendor lock-in</li>
+<li>Diffable, gitable, reproducible</li>
+<li>LaTeX equations, code highlighting</li>
+<li>Much better HTML output</li>
+<li>Faster creation of text-heavy documents</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="keynote.png"> <img data-src="powerpoint.png"></p>
+</div>
+</div>
+</section>
+<section id="advantages-over-bookblogdown" class="slide level2">
+<h2>Advantages over Book/Blogdown</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>More themes/layouts</li>
+<li>Many more output options (e.g.&nbsp;presentations)</li>
+<li>No dependency on R/RStudio and Hugo</li>
+<li>One tool for everything and better integration with pandoc</li>
+<li>Open source licence GPL v2</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="blogdown.png"> <img data-src="bookdown.png"></p>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div id="title-slide" class="center">
+<ul>
+<li><a href="https://quarto.org/docs/gallery/">Quarto Gallery</a></li>
+<li>Live demo</li>
+</ul>
+</div>
+<aside class="notes">
+<p>Show example HTML and PDF with advanced layout</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="summary" class="slide level2 smaller">
+<h2>Summary</h2>
+<ul>
+<li>Quarto can
+<ul>
+<li>autogenerate plots and widgets from embedded code snippets</li>
+<li>cross referencing (also between different websites)</li>
+<li>footnotes, sidenotes</li>
+<li>bibliography</li>
+<li>appendix</li>
+<li>DOI, Google Scholar</li>
+<li>…</li>
 </ul></li>
+<li>Quarto can create HTML, Word, Powerpoint, ePub, Wikis, RTF, Jupyter, InDesign, Websites, Blogs, Books…<br>
+</li>
+<li>Quarto is not a successor of <span class="math inline">\(\text{\LaTeX}\)</span></li>
+<li>Quarto is a <span class="math inline">\(\text{\LaTeX}\)</span> generator</li>
 </ul>
 </section>
-<section id="conclusion-2" class="slide level2">
-<h2>Conclusion 2</h2>
-<ul>
-<li>wouldn’t C/Java style be better?</li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>] returns_tuple(<span class="bu">str</span>:<span class="bu">input</span> <span class="op">=</span> <span class="st">"default"</span>) :</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Even with a wrong type hint your code can still run.
-<ul>
-<li>How to maintain type hints, when refactoring the code?</li>
-<li>Regularly run static code analysis to detect inconsistencies: like a compiler!</li>
-</ul></li>
-</ul>
-</section>
-<section id="end" class="slide level2">
-<h2>End</h2>
-<p>Original presentation on github gist:</p>
-<ul>
-<li><a href="https://gist.github.com/asmaier/f2577460efa6270bdfc47738becc80a8">Python Type Hints</a></li>
-</ul>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<div id="title-slide" class="center">
+<div style="font-size:300%">
+<p>The End</p>
+</div>
+</div>
 
-<div class="footer footer-default">
 
+<img src="um_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://www.unbelievable-machine.com/" class="uri">https://www.unbelievable-machine.com/</a></p>
 </div>
 </section>
     </div>
@@ -494,8 +490,8 @@
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': false,
-'previewLinksAuto': false,
+'controlsAuto': true,
+'previewLinksAuto': true,
 'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
@@ -505,7 +501,7 @@
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: true,
+        controls: false,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
@@ -522,7 +518,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

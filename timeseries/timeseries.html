@@ -9,7 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.615">
 
-  <title>presentations - Python Type Hints</title>
+  <meta name="author" content="Dr.&nbsp;Andreas Maier">
+  <meta name="dcterms.date" content="2022-07-21">
+  <title>presentations - Time Series Prediction Part I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -22,70 +24,6 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -382,93 +320,387 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">Python Type Hints</h1>
+  <h1 class="title">Time Series Prediction Part I</h1>
+  <p class="author">Dr.&nbsp;Andreas Maier</p>
+  <p class="date">2022-07-21</p>
 </section>
 
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
+<section id="time-series" class="slide level2 smaller">
+<h2>Time Series</h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li>Type after variable</li>
-<li>Problem: IDE cannot suggest variable name based on type</li>
-</ul>
-</section>
-<section id="primitives" class="slide level2">
-<h2>Primitives</h2>
-<p>From</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">//</span> primitive function</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">def</span> uga_uga(text):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> uga_uga(text: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="bu">int</span>:</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">"""</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">Very primitive AI.</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">:param text: Input text</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">:return: Number parsed by primitive AI</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">"""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="not-so-primitives" class="slide level2">
-<h2>Not so primitives</h2>
-<h3 id="tuples-dicts-etc">Tuples, Dicts, etc…</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> typing <span class="im">import</span> Tuple</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">def</span> returns_tuple(<span class="bu">input</span>: <span class="bu">str</span>) <span class="op">-&gt;</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>]:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="void-method">Void method</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">def</span> i_have_side_effects(path: <span class="bu">str</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<h3 id="complex-types">Complex types</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> pyspark</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="im">from</span> pyspark.sql.column <span class="im">import</span> Column</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">def</span> do_stuff(sc: pyspark.SparkContext, path: <span class="bu">str</span>) <span class="op">-&gt;</span> Column:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="default-value" class="slide level2">
-<h2>Default value</h2>
+<li>Clustering
 <ul>
-<li>Confusing syntax at first</li>
-</ul>
-<p>From</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">def</span> dirty_function(cleanup<span class="op">=</span><span class="va">True</span>):</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>to</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">def</span> dirty_function(cleanup: <span class="bu">bool</span><span class="op">=</span><span class="va">True</span>) <span class="op">-&gt;</span> Something:</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The value of <code>cleanup</code> is <code>True</code> not the value of <code>bool</code>! Another disadvantage of types after variable name.</p>
-</section>
-<section id="conclusion-1" class="slide level2 smaller">
-<h2>Conclusion 1</h2>
+<li>Dynamic Time Warping</li>
+</ul></li>
+<li>Segmentation
 <ul>
-<li>Cool for final documentation</li>
-<li>Only type hints, but no accessibility and changeability (const vs.&nbsp;variable): This is not a complete compiler!</li>
-<li>How to express contracts like
+<li>Speech recognition<br>
+</li>
+</ul></li>
+<li>Classification</li>
+<li>Anomaly/Outlier Detection</li>
+<li>Imputation</li>
+<li><strong>Forecasting</strong>
 <ul>
-<li>This function doesn’t accept None</li>
-<li>This function does never return None</li>
-<li>This function can throw exception ABC and DEF.</li>
-<li>def convert(year, month, day) with year &gt; 1970, 1 &lt; month &lt; 12, and day = 31, 30, 29 or 28 ?</li>
-<li>Don’t program your rocket’s software in Python, use ADA!</li>
+<li>Trajectory prediction</li>
+<li>Stock Market prediction</li>
 </ul></li>
 </ul>
-</section>
-<section id="conclusion-2" class="slide level2">
-<h2>Conclusion 2</h2>
+</div><div class="column">
 <ul>
-<li>wouldn’t C/Java style be better?</li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">def</span> Tuple[<span class="bu">str</span>, <span class="bu">str</span>] returns_tuple(<span class="bu">str</span>:<span class="bu">input</span> <span class="op">=</span> <span class="st">"default"</span>) :</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<li><strong>Univariate</strong></li>
+<li>Multivariate</li>
+<li>Zerovariate
 <ul>
-<li>Even with a wrong type hint your code can still run.
-<ul>
-<li>How to maintain type hints, when refactoring the code?</li>
-<li>Regularly run static code analysis to detect inconsistencies: like a compiler!</li>
+<li>Delphi Method</li>
 </ul></li>
 </ul>
-</section>
-<section id="end" class="slide level2">
-<h2>End</h2>
-<p>Original presentation on github gist:</p>
-<ul>
-<li><a href="https://gist.github.com/asmaier/f2577460efa6270bdfc47738becc80a8">Python Type Hints</a></li>
-</ul>
-
-<div class="footer footer-default">
-
 </div>
+</div>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<blockquote>
+<p>“Prediction is the essence of intelligence, and that’s what we’re trying to do.”<br>
+<br>
+– <cite>Yann LeCun (2015)</cite></p>
+</blockquote>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<blockquote>
+<p>“Prediction is very difficult, especially if it’s about the future!”<br>
+<br>
+– <cite>Niels Bohr</cite></p>
+</blockquote>
+</section>
+<section id="section-2" class="slide level2 center">
+<h2></h2>
+<blockquote>
+<p>“What we can’t predict, we call randomness.”<br>
+<br>
+– <cite>Albert Einstein</cite></p>
+</blockquote>
+</section>
+<section id="understanding-randomness-1" class="slide level2">
+<h2>Understanding Randomness 1</h2>
+<dl>
+<dt>Random walk</dt>
+<dd>
+cumulative sum of random numbers
+</dd>
+</dl>
+
+<img data-src="timeseries_files/figure-revealjs/cell-2-output-1.png" class="r-stretch quarto-figure-center"></section>
+<section id="understanding-randomness-2" class="slide level2">
+<h2>Understanding Randomness 2</h2>
+<dl>
+<dt>Walk of random walk</dt>
+<dd>
+cumulative sum of a random walk
+</dd>
+</dl>
+<div class="r-stack">
+<div class="fragment">
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="timeseries_files/figure-revealjs/cell-3-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="r-fit-text fragment">
+<p>Wat??</p>
+</div>
+<div class="r-fit-text fragment" style="background: #FFFFFF;">
+<p><a href="https://stats.stackexchange.com/questions/580718/properties-of-cumulative-sum-of-a-random-walk" class="uri">https://stats.stackexchange.com/questions/580718/properties-of-cumulative-sum-of-a-random-walk</a></p>
+</div>
+</div>
+</section>
+<section id="pearson-correlation-coefficient-r" class="slide level2 smaller">
+<h2>Pearson correlation coefficient <span class="math inline">\(r\)</span></h2>
+<p><img data-src="Correlation_examples2.png"></p>
+<ul>
+<li>Measures linear correlation between two sets of data</li>
+<li>Equal to the slope of a linear regression model (for standardized data <span class="math inline">\(\sigma_x=\sigma_y=1\)</span>)<a href="#/fn1" class="footnote-ref" id="fnref1" role="doc-noteref" onclick="return false;"><sup>1</sup></a></li>
+</ul>
+<p><span class="math display">\[
+\hat{y} = \phi_0 + \phi_1 x = \phi_0 + \frac{cov(x,y)}{\sigma_x^2} x = \phi_0 + r \frac{\sigma_x}{\sigma_y} x
+\]</span></p>
+<aside></aside></section>
+<section id="autocorrelation-1" class="slide level2 smaller">
+<h2>Autocorrelation 1</h2>
+<p>Pearson coefficients between time series and time shifted version of itself</p>
+<div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="timeseries_files/figure-revealjs/cell-4-output-1.png"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="timeseries_files/figure-revealjs/cell-4-output-2.png"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="autocorrelation-2" class="slide level2 smaller">
+<h2>Autocorrelation 2</h2>
+<div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="timeseries_files/figure-revealjs/cell-5-output-1.png"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- The footnote here seems to break the layout. One needs to set figsize=(5,3) in the python
+code above to fix the layout -->
+<ul>
+<li>ACF (auto correlation function) of non-stationary data decreases slowly<a href="#/fn2" class="footnote-ref" id="fnref2" role="doc-noteref" onclick="return false;"><sup>2</sup></a></li>
+<li>random walk is non-stationary</li>
+</ul>
+<aside></aside></section>
+<section id="stationarity" class="slide level2">
+<h2>Stationarity</h2>
+<p>Statistical properties don’t change over time</p>
+<p><img data-src="stationarity.png"> <a href="#/fn3" class="footnote-ref" id="fnref3" role="doc-noteref" onclick="return false;"><sup>3</sup></a></p>
+<ul>
+<li>A stationary time series has no seasonality or trend.</li>
+<li>Many tools, statistical tests and models (ARIMA!) rely on stationarity.</li>
+</ul>
+<aside></aside></section>
+<section id="differencing" class="slide level2 smaller">
+<h2>Differencing</h2>
+
+<img data-src="timeseries_files/figure-revealjs/cell-6-output-1.png" class="r-stretch quarto-figure-center"><ul>
+<li>Differencing of degree <span class="math inline">\(d\)</span> can help to stabilise the mean eliminating/reducing trend and seasonality.</li>
+<li>Transformations such as logarithms can help to stabilise the variance</li>
+<li>ACF is zero for first derivative of random walk</li>
+</ul>
+</section>
+<section id="partial-autocorrelation-1" class="slide level2">
+<h2>Partial autocorrelation 1</h2>
+<ul>
+<li>Direct linear correlation <span class="math inline">\(r_k\)</span> between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_k\)</span> <span class="math display">\[
+  \hat{y} = \phi_0 + 0 \cdot x_1 + ... +  r_k x_k
+  \]</span></li>
+<li>Partial correlation <span class="math inline">\(p_k\)</span> between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_k\)</span> <span class="math display">\[
+  \hat{y} = \phi_0 + \phi_1 x_1 + ... +  p_k x_k
+  \]</span> Dependency on <span class="math inline">\(x_1, x_2, ...\)</span> is absorbed into <span class="math inline">\(\phi_1, \phi_2, ...\)</span></li>
+</ul>
+<p><strong>Partial correlation is linear correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_k\)</span> with indirect correlation to <span class="math inline">\(x_1, x_2, ...\)</span> removed.</strong><a href="#/fn4" class="footnote-ref" id="fnref4" role="doc-noteref" onclick="return false;"><sup>4</sup></a></p>
+<aside></aside></section>
+<section id="partial-autocorrelation-2" class="slide level2 smaller">
+<h2>Partial autocorrelation 2</h2>
+
+<img data-src="timeseries_files/figure-revealjs/cell-7-output-1.png" class="r-stretch quarto-figure-center"><ul>
+<li>PACF (Partial autocorellation function) is zero for random walk except for lag 1</li>
+</ul>
+</section>
+<section id="autoregression-model" class="slide level2 smaller">
+<h2>Autoregression model</h2>
+<ul>
+<li>forecast <span class="math inline">\(y_t\)</span> using a linear combination of past values <span class="math display">\[
+  \hat{y}_t = \phi_0 + \phi_1 y_{t-1} + \phi_2 y_{t-2} + ... + \phi_p y_{t-p}
+  \]</span></li>
+<li>Autoregression means linear regression with lagged version of itself (similar to autocorrelation)</li>
+<li>AR(p) means <span class="math inline">\(\phi_0, ..., \phi_p \neq 0\)</span></li>
+<li>Autoregressive process can be used to generate data from random white noise <span class="math inline">\(\epsilon_t\)</span> and fixed parameters <span class="math inline">\(\phi_k\)</span> <span class="math display">\[
+  y_t = \epsilon_t + \phi_0 + \phi_1 y_{t-1} + \phi_2 y_{t-2} + ... + \phi_p y_{t-p}
+  \]</span></li>
+<li>For <span class="math inline">\(\phi_0 = 0\)</span> and <span class="math inline">\(\phi_1=1\)</span> an AR(1) process is a random walk</li>
+</ul>
+</section>
+<section id="moving-average-model" class="slide level2 smaller">
+<h2>Moving average model</h2>
+<ul>
+<li>The name “moving average” is technically incorrect <a href="#/fn5" class="footnote-ref" id="fnref5" role="doc-noteref" onclick="return false;"><sup>5</sup></a></li>
+<li>Better would be lagged error regression</li>
+<li>forecast <span class="math inline">\(y_t\)</span> using a linear combination of past forecast errors <span class="math display">\[
+  \hat{y}_t = \theta_0 + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + ... + \theta_q \epsilon_{t-q}
+  \]</span></li>
+<li>MA(q) cannot be fitted like an ordinary least square (OLS), because the forecast errors are not known</li>
+<li><a href="https://stats.stackexchange.com/questions/505873/how-to-manually-fit-ma1-model-with-ols">Example algorithm</a>: Set initial values for <span class="math inline">\(\theta_k\)</span> and <span class="math inline">\(\epsilon_k\)</span>, then
+<ul>
+<li>For i=1..N do
+<ol type="1">
+<li>Compute error terms for all <span class="math inline">\(t\)</span>: <span class="math inline">\(\epsilon_t\)</span> = <span class="math inline">\(y_t - \hat{y}_t\)</span></li>
+<li>Run a regression of <span class="math inline">\(y_t\)</span> against <span class="math inline">\(\hat{y}_t\)</span> and update <span class="math inline">\(\theta_k\)</span></li>
+<li>Repeat</li>
+</ol></li>
+</ul></li>
+<li>Like(?) <a href="https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares">Iteratively_reweighted_least_squares</a> or similar iterative process to estimate <span class="math inline">\(\theta_k\)</span></li>
+</ul>
+<aside></aside></section>
+<section id="arima" class="slide level2 smaller">
+<h2>ARIMA</h2>
+<ul>
+<li>Autoregressive integrated moving average model combines AR(p), differencing/integrating I(d) and MA(q)</li>
+</ul>
+<p><span class="math display">\[
+\hat{y}_t = c + \phi_1 y^{(d)}_{t-1} + ... + \phi_p y^{(d)}_{t-p} + \theta_1 \epsilon_{t-1} ... + \theta_q \epsilon_{t-q}
+\]</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>equivalent to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ARIMA(0,1,0)</td>
+<td>Random Walk (with drift)</td>
+</tr>
+<tr class="even">
+<td>ARIMA(0,1,1)</td>
+<td>simple exponential smoothing ETS(A,N,N)</td>
+</tr>
+<tr class="odd">
+<td>ARIMA(1,0,0)</td>
+<td>discrete Ornstein-Uhlenbeck process <a href="#/fn6" class="footnote-ref" id="fnref6" role="doc-noteref" onclick="return false;"><sup>6</sup></a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>To find the best fitting ARIMA model one can use the Box-Jenkins-Method</li>
+</ul>
+<aside></aside></section>
+<section id="box-jenkins-method" class="slide level2 smaller">
+<h2>Box-Jenkins Method</h2>
+<ol type="1">
+<li>Make the time series stationary (e.g.&nbsp;standardization, differencing <span class="math inline">\(d\)</span>-times, …)</li>
+<li>Use ACF plot and PACF plot to identify the parameter <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span></li>
+<li>Fitting the parameters of the ARIMA(p,d,q) model. This can be done with <a href="https://doi.org/10.2307/2335856">Hannan–Rissanen (1982)</a> algorithm
+<ol type="1">
+<li>AR(m) model (with <span class="math inline">\(m &gt; max(p, q)\)</span>) is fitted to the data</li>
+<li>Compute error terms for all <span class="math inline">\(t\)</span>: <span class="math inline">\(\epsilon_t\)</span> = <span class="math inline">\(y_t - \hat{y}_t\)</span></li>
+<li>Regress <span class="math inline">\(y_t\)</span> on <span class="math inline">\(y^{(d)}_{t-1},..,y^{(d)}_{t-p},\epsilon_{t-1},...,\epsilon_{t-q}\)</span></li>
+<li>To improve accurancy optinally regress again with updated <span class="math inline">\(\phi,\theta\)</span> from step 3</li>
+</ol>
+Other algorithms (maximizing likelihood) are often used in practice <a href="#/fn7" class="footnote-ref" id="fnref7" role="doc-noteref" onclick="return false;"><sup>7</sup></a> <a href="#/fn8" class="footnote-ref" id="fnref8" role="doc-noteref" onclick="return false;"><sup>8</sup></a></li>
+<li>Statistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)</li>
+<li>Once the residuals look like white noise, do the forecast</li>
+</ol>
+<p><strong>Nowadays all these steps are automated by tools like AutoARIMA etc.</strong></p>
+<aside></aside></section>
+<section id="why" class="slide level2">
+<h2>Why???</h2>
+<ul>
+<li><p>Why combine AR and MA ?</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Wold%27s_theorem">Wold’s theorem</a> ?</li>
+</ul></li>
+<li><p>AR is analogeous to linear regression, but what is MA analogeous to outside of time series analysis?</p></li>
+<li><p>Why is ARIMA better than AR alone?</p></li>
+</ul>
+<!--
+## Autocorrelation add-on
+
+:::{.r-stack}
+:::{.fragment .fade-out fragment-index=0}
+
+
+
+$$
+c(l) = \sum_{t=-\infty}^{t=\infty} f^*(t)f(t + l) 
+$$
+
+
+
+:::
+:::{.fragment .current-visible fragment-index=0}
+
+
+
+$$
+c(l) = \frac{1}{2N}\sum_{t=-N}^{t=N} f^*(t)f(t + l) 
+$$
+
+
+
+:::
+:::{.fragment .current-visible}
+
+
+
+$$
+c(l) = \frac{1}{N}\sum_{t=1}^{t=N} f^*(t)f(t + l) 
+$$
+
+
+
+:::
+:::{.fragment}
+
+
+
+$$
+c(l) = \frac{1}{N}\sum_{t=1}^{t=N} z^*(l)z(t + l) 
+$$
+
+
+
+with z-transform to mean=0 and std=1
+
+
+
+$$
+z(t)= \frac{f(t) - \bar{f}}{\sigma_f} 
+$$
+
+
+
+Equal to Pearson correlation coefficient 
+
+for $x=z(t)$ and $y=z(t+l)$
+:::
+:::
+
+
+
+## Predicting a random walk
+
+Is it possible to predict a random walk?
+
+No, but...
+
+> Anyone who attempts to generate random numbers by deterministic means is, of course, living in a state of sin. \
+> \
+> -- <cite>John v. Neumann</cite>
+
+Could it be possible that a huge neural network can model the deterministic
+algorithm and figure out the seed of the random number generator?
+-->
+
+
+<img src="um_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><a href="https://www.unbelievable-machine.com/" class="uri">https://www.unbelievable-machine.com/</a></p>
+</div>
+</section>
+<section class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>References</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://sebastianraschka.com/faq/docs/pearson-r-vs-linear-regr.html">Raschka: What is the difference between Pearson R and Simple Linear Regression?</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://otexts.com/fpp3/stationarity.html">Hyndman (2021): Forecasting: principles and practice, chapter 9.1</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://towardsdatascience.com/stationarity-in-time-series-analysis-90c94f27322">Palachy (2019): Towards Data Science | Stationarity in time series analysis</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://online.stat.psu.edu/stat510/lesson/2/2.2">Pen State: STAT 510 | Applied Time Series Analysis, chapter 2.2</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="https://stats.stackexchange.com/questions/58242/why-are-maq-time-series-models-called-moving-averages">Stackexchange: why-are-maq-time-series-models-called-moving-averages</a></p></li>
+<li id="fn6" role="doc-endnote"><p><a href="https://en.wikipedia.org/wiki/Autoregressive_model#Explicit_mean/difference_form_of_AR(1)_process">Wikipedia: Autoregressive_model</a></p></li>
+<li id="fn7" role="doc-endnote"><p><a href="https://eprints.ukh.ac.id/id/eprint/232/">Brockwell, Davis (2016) Introduction to Time Series and Forecasting, chapter 5</a></p></li>
+<li id="fn8" role="doc-endnote"><p><a href="https://doi.org/10.18637/jss.v027.i03">Hyndman (2008). Automatic Time Series Forecasting: The forecast Package for R</a></p></li>
+</ol>
 </section>
     </div>
   </div>
@@ -494,7 +726,7 @@
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': false,
+'controlsAuto': true,
 'previewLinksAuto': false,
 'smaller': false,
 'pdfSeparateFragments': false,
@@ -505,7 +737,7 @@
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: true,
+        controls: false,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
@@ -522,7 +754,7 @@
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

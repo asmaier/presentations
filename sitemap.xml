@@ -2,18 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asmaier.github.io/presentations/wahl-o-mat-data/index.html</loc>
-    <lastmod>2022-07-25T15:30:01.857Z</lastmod>
+    <lastmod>2022-07-25T17:49:55.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/timeseries/timeseries.html</loc>
+    <lastmod>2022-07-25T17:49:57.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/timeseries/random_walk.html</loc>
+    <lastmod>2022-07-25T17:50:06.673Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/python_type_hints/index.html</loc>
-    <lastmod>2022-07-25T15:30:02.219Z</lastmod>
+    <lastmod>2022-07-25T17:50:06.992Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/index.html</loc>
-    <lastmod>2022-07-25T15:30:02.745Z</lastmod>
+    <lastmod>2022-07-25T17:50:07.965Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/about.html</loc>
-    <lastmod>2022-07-25T15:30:03.129Z</lastmod>
+    <lastmod>2022-07-25T17:50:08.328Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/quarto/quarto.html</loc>
+    <lastmod>2022-07-25T17:50:08.667Z</lastmod>
   </url>
 </urlset>

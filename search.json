@@ -56,6 +56,139 @@
     "text": "End\nOriginal presentation on github gist:\n\nInvestigate political landscape (using Wahl-O-Mat data)"
   },
   {
+    "objectID": "timeseries/timeseries.html#time-series",
+    "href": "timeseries/timeseries.html#time-series",
+    "title": "Time Series Prediction Part I",
+    "section": "Time Series",
+    "text": "Time Series\n\n\n\nClustering\n\nDynamic Time Warping\n\nSegmentation\n\nSpeech recognition\n\n\nClassification\nAnomaly/Outlier Detection\nImputation\nForecasting\n\nTrajectory prediction\nStock Market prediction\n\n\n\n\nUnivariate\nMultivariate\nZerovariate\n\nDelphi Method"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#section",
+    "href": "timeseries/timeseries.html#section",
+    "title": "Time Series Prediction Part I",
+    "section": "",
+    "text": "“Prediction is the essence of intelligence, and that’s what we’re trying to do.”\n\n– Yann LeCun (2015)"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#section-1",
+    "href": "timeseries/timeseries.html#section-1",
+    "title": "Time Series Prediction Part I",
+    "section": "",
+    "text": "“Prediction is very difficult, especially if it’s about the future!”\n\n– Niels Bohr"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#section-2",
+    "href": "timeseries/timeseries.html#section-2",
+    "title": "Time Series Prediction Part I",
+    "section": "",
+    "text": "“What we can’t predict, we call randomness.”\n\n– Albert Einstein"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#understanding-randomness-1",
+    "href": "timeseries/timeseries.html#understanding-randomness-1",
+    "title": "Time Series Prediction Part I",
+    "section": "Understanding Randomness 1",
+    "text": "Understanding Randomness 1\n\nRandom walk\n\ncumulative sum of random numbers"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#understanding-randomness-2",
+    "href": "timeseries/timeseries.html#understanding-randomness-2",
+    "title": "Time Series Prediction Part I",
+    "section": "Understanding Randomness 2",
+    "text": "Understanding Randomness 2\n\nWalk of random walk\n\ncumulative sum of a random walk\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWat??\n\n\nhttps://stats.stackexchange.com/questions/580718/properties-of-cumulative-sum-of-a-random-walk"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#pearson-correlation-coefficient-r",
+    "href": "timeseries/timeseries.html#pearson-correlation-coefficient-r",
+    "title": "Time Series Prediction Part I",
+    "section": "Pearson correlation coefficient \\(r\\)",
+    "text": "Pearson correlation coefficient \\(r\\)\n\n\nMeasures linear correlation between two sets of data\nEqual to the slope of a linear regression model (for standardized data \\(\\sigma_x=\\sigma_y=1\\))1\n\n\\[\n\\hat{y} = \\phi_0 + \\phi_1 x = \\phi_0 + \\frac{cov(x,y)}{\\sigma_x^2} x = \\phi_0 + r \\frac{\\sigma_x}{\\sigma_y} x\n\\]"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#autocorrelation-1",
+    "href": "timeseries/timeseries.html#autocorrelation-1",
+    "title": "Time Series Prediction Part I",
+    "section": "Autocorrelation 1",
+    "text": "Autocorrelation 1\nPearson coefficients between time series and time shifted version of itself"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#autocorrelation-2",
+    "href": "timeseries/timeseries.html#autocorrelation-2",
+    "title": "Time Series Prediction Part I",
+    "section": "Autocorrelation 2",
+    "text": "Autocorrelation 2\n\n\n\n\n\n\n\n\n\n\n\nACF (auto correlation function) of non-stationary data decreases slowly2\nrandom walk is non-stationary"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#stationarity",
+    "href": "timeseries/timeseries.html#stationarity",
+    "title": "Time Series Prediction Part I",
+    "section": "Stationarity",
+    "text": "Stationarity\nStatistical properties don’t change over time\n 3\n\nA stationary time series has no seasonality or trend.\nMany tools, statistical tests and models (ARIMA!) rely on stationarity."
+  },
+  {
+    "objectID": "timeseries/timeseries.html#differencing",
+    "href": "timeseries/timeseries.html#differencing",
+    "title": "Time Series Prediction Part I",
+    "section": "Differencing",
+    "text": "Differencing\n\n\nDifferencing of degree \\(d\\) can help to stabilise the mean eliminating/reducing trend and seasonality.\nTransformations such as logarithms can help to stabilise the variance\nACF is zero for first derivative of random walk"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#partial-autocorrelation-1",
+    "href": "timeseries/timeseries.html#partial-autocorrelation-1",
+    "title": "Time Series Prediction Part I",
+    "section": "Partial autocorrelation 1",
+    "text": "Partial autocorrelation 1\n\nDirect linear correlation \\(r_k\\) between \\(y\\) and \\(x_k\\) \\[\n  \\hat{y} = \\phi_0 + 0 \\cdot x_1 + ... +  r_k x_k\n  \\]\nPartial correlation \\(p_k\\) between \\(y\\) and \\(x_k\\) \\[\n  \\hat{y} = \\phi_0 + \\phi_1 x_1 + ... +  p_k x_k\n  \\] Dependency on \\(x_1, x_2, ...\\) is absorbed into \\(\\phi_1, \\phi_2, ...\\)\n\nPartial correlation is linear correlation between \\(y\\) and \\(x_k\\) with indirect correlation to \\(x_1, x_2, ...\\) removed.4"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#partial-autocorrelation-2",
+    "href": "timeseries/timeseries.html#partial-autocorrelation-2",
+    "title": "Time Series Prediction Part I",
+    "section": "Partial autocorrelation 2",
+    "text": "Partial autocorrelation 2\n\n\nPACF (Partial autocorellation function) is zero for random walk except for lag 1"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#autoregression-model",
+    "href": "timeseries/timeseries.html#autoregression-model",
+    "title": "Time Series Prediction Part I",
+    "section": "Autoregression model",
+    "text": "Autoregression model\n\nforecast \\(y_t\\) using a linear combination of past values \\[\n  \\hat{y}_t = \\phi_0 + \\phi_1 y_{t-1} + \\phi_2 y_{t-2} + ... + \\phi_p y_{t-p}\n  \\]\nAutoregression means linear regression with lagged version of itself (similar to autocorrelation)\nAR(p) means \\(\\phi_0, ..., \\phi_p \\neq 0\\)\nAutoregressive process can be used to generate data from random white noise \\(\\epsilon_t\\) and fixed parameters \\(\\phi_k\\) \\[\n  y_t = \\epsilon_t + \\phi_0 + \\phi_1 y_{t-1} + \\phi_2 y_{t-2} + ... + \\phi_p y_{t-p}\n  \\]\nFor \\(\\phi_0 = 0\\) and \\(\\phi_1=1\\) an AR(1) process is a random walk"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#moving-average-model",
+    "href": "timeseries/timeseries.html#moving-average-model",
+    "title": "Time Series Prediction Part I",
+    "section": "Moving average model",
+    "text": "Moving average model\n\nThe name “moving average” is technically incorrect 5\nBetter would be lagged error regression\nforecast \\(y_t\\) using a linear combination of past forecast errors \\[\n  \\hat{y}_t = \\theta_0 + \\theta_1 \\epsilon_{t-1} + \\theta_2 \\epsilon_{t-2} + ... + \\theta_q \\epsilon_{t-q}\n  \\]\nMA(q) cannot be fitted like an ordinary least square (OLS), because the forecast errors are not known\nExample algorithm: Set initial values for \\(\\theta_k\\) and \\(\\epsilon_k\\), then\n\nFor i=1..N do\n\nCompute error terms for all \\(t\\): \\(\\epsilon_t\\) = \\(y_t - \\hat{y}_t\\)\nRun a regression of \\(y_t\\) against \\(\\hat{y}_t\\) and update \\(\\theta_k\\)\nRepeat\n\n\nLike(?) Iteratively_reweighted_least_squares or similar iterative process to estimate \\(\\theta_k\\)"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#arima",
+    "href": "timeseries/timeseries.html#arima",
+    "title": "Time Series Prediction Part I",
+    "section": "ARIMA",
+    "text": "ARIMA\n\nAutoregressive integrated moving average model combines AR(p), differencing/integrating I(d) and MA(q)\n\n\\[\n\\hat{y}_t = c + \\phi_1 y^{(d)}_{t-1} + ... + \\phi_p y^{(d)}_{t-p} + \\theta_1 \\epsilon_{t-1} ... + \\theta_q \\epsilon_{t-q}\n\\]\n\n\n\nModel\nequivalent to\n\n\n\n\nARIMA(0,1,0)\nRandom Walk (with drift)\n\n\nARIMA(0,1,1)\nsimple exponential smoothing ETS(A,N,N)\n\n\nARIMA(1,0,0)\ndiscrete Ornstein-Uhlenbeck process 6\n\n\n\n\nTo find the best fitting ARIMA model one can use the Box-Jenkins-Method"
+  },
+  {
+    "objectID": "timeseries/timeseries.html#box-jenkins-method",
+    "href": "timeseries/timeseries.html#box-jenkins-method",
+    "title": "Time Series Prediction Part I",
+    "section": "Box-Jenkins Method",
+    "text": "Box-Jenkins Method\n\nMake the time series stationary (e.g. standardization, differencing \\(d\\)-times, …)\nUse ACF plot and PACF plot to identify the parameter \\(p\\) and \\(q\\)\nFitting the parameters of the ARIMA(p,d,q) model. This can be done with Hannan–Rissanen (1982) algorithm\n\nAR(m) model (with \\(m > max(p, q)\\)) is fitted to the data\nCompute error terms for all \\(t\\): \\(\\epsilon_t\\) = \\(y_t - \\hat{y}_t\\)\nRegress \\(y_t\\) on \\(y^{(d)}_{t-1},..,y^{(d)}_{t-p},\\epsilon_{t-1},...,\\epsilon_{t-q}\\)\nTo improve accurancy optinally regress again with updated \\(\\phi,\\theta\\) from step 3\n\nOther algorithms (maximizing likelihood) are often used in practice 7 8\nStatistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)\nOnce the residuals look like white noise, do the forecast\n\nNowadays all these steps are automated by tools like AutoARIMA etc."
+  },
+  {
+    "objectID": "timeseries/timeseries.html#why",
+    "href": "timeseries/timeseries.html#why",
+    "title": "Time Series Prediction Part I",
+    "section": "Why???",
+    "text": "Why???\n\nWhy combine AR and MA ?\n\nWold’s theorem ?\n\nAR is analogeous to linear regression, but what is MA analogeous to outside of time series analysis?\nWhy is ARIMA better than AR alone?\n\n\n\n\n\nhttps://www.unbelievable-machine.com/"
+  },
+  {
+    "objectID": "timeseries/random_walk.html",
+    "href": "timeseries/random_walk.html",
+    "title": "presentations",
+    "section": "",
+    "text": "random.seed(1789)\nN=10000\nx = range(N)\nseries = [random.randrange(-1,2) for i in range(N)]\n\nsns.lineplot(x=x, y=series);\n\n\n\n\n# very inefficient creation of a random walk, don't use for N>100000\n# %timeit walk = [sum(series[:i+1]) for i in range(N)]\n# much faster, see https://stackoverflow.com/questions/15889131/how-to-find-the-cumulative-sum-of-numbers-in-a-list\n# %timeit walk = list(itertools.accumulate(series))\nwalk = list(itertools.accumulate(series))\n\nsns.lineplot(x=x, y=walk)\n\n<AxesSubplot:>\n\n\n\n\n\nwalk_of_walk = list(itertools.accumulate(walk))\n\nsns.lineplot(x=x, y=walk_of_walk)\n\n<AxesSubplot:>\n\n\n\n\n\nwalk_of_walk_of_walk = list(itertools.accumulate(walk_of_walk))\n\nsns.lineplot(x=x, y=walk_of_walk_of_walk)\n\n<AxesSubplot:>\n\n\n\n\n\n\nstats.zscore(walk).mean(), stats.zscore(walk).std()\n\n(-4.5474735088646414e-17, 0.9999999999999999)\n\n\n\nsns.lineplot(x=x, y=stats.zscore(walk));\n\n\n\n\n\nfig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, figsize=(24, 6))\n\nfor shift, axis in [(5,ax1),(50,ax2),(500,ax3),(5000,ax4)]:\n    \n    X = stats.zscore(walk[:-shift])\n    Y = stats.zscore(walk[shift:])\n    \n    R = stats.pearsonr(X,Y)[0]\n    \n    axis.set_title(f\"Pearson coef.: {R:.2f}\")\n    axis.set_xlabel(f\"z(t + {shift})\")\n    axis.set_ylabel(f\"z(t)\")\n    \n    sns.scatterplot(x=Y,y=X, s=10, ax=axis, alpha=0.1, );\n\n\n\n\nimport darts\nfrom darts.utils.statistics import plot_acf, plot_pacf, check_seasonality\nds_walk = pd.Series(walk)\nts_walk = darts.TimeSeries.from_series(ds_walk)\n\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\nfig.tight_layout()\nts_walk.plot(ax=ax1)\nax1.set_title(\"\")\nax2.set_xlabel(\"lag\")\nplot_acf(ts_walk, max_lag=9000, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nds_walk_walk = pd.Series(walk_of_walk)\nts_walk_walk =darts.TimeSeries.from_series(ds_walk_walk)\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\nts_walk_walk.plot(ax=ax1)\nplot_acf(ts_walk_walk, max_lag=9000, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\n\nwalk_diff = ts_walk[:1000].diff()\nwalk_diff.plot(ax=ax1)\nax1.set_title(\"\")\nax2.set_xlabel(\"lag\")\nfig.tight_layout()\nplot_acf(walk_diff, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nplot_pacf(ts_walk)"
+  },
+  {
     "objectID": "python_type_hints/index.html#overview",
     "href": "python_type_hints/index.html#overview",
     "title": "Python Type Hints",
@@ -109,7 +242,7 @@
     "href": "index.html",
     "title": "Presentations",
     "section": "",
-    "text": "date\ntitle\npreview\n\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n\n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
+    "text": "date\ntitle\npreview\n\n\n\n\n2022-07-21\nTime Series Prediction Part I\n\n\n\n2022-06-30\nQuarto - A successor to LaTeX?\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n\n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
   },
   {
     "objectID": "about.html",
@@ -117,5 +250,68 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "quarto/quarto.html#overview",
+    "href": "quarto/quarto.html#overview",
+    "title": "Quarto",
+    "section": "Overview",
+    "text": "Overview\nQuarto® is an open-source scientific and technical publishing system built on Pandoc.\n\nAuthor with pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\nPublish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF , MS Word, Powerpoint, ePub, and more.\nSupport for interactive documents (Jupyter, Shiny, Observable)\nQuarto is the successor to Bookdown/Blogdown"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-latex",
+    "href": "quarto/quarto.html#advantages-over-latex",
+    "title": "Quarto",
+    "section": "Advantages over LaTeX",
+    "text": "Advantages over LaTeX\n\n\n\nCreate dynamic content with Python, R, Julia, and Observable.\nInteractive widgets (Shiny, Jupyter widgets, Observable JS)\nSupport for many more output formats and even whole websites and blogs"
+  },
+  {
+    "objectID": "quarto/quarto.html#disadvantages-over-latex",
+    "href": "quarto/quarto.html#disadvantages-over-latex",
+    "title": "Quarto",
+    "section": "Disadvantages over LaTeX",
+    "text": "Disadvantages over LaTeX\n\n\n\nPandoc markdown is not a (Turing-) complete programming language\nLaTeX is “the specialist” for print output\nLaTeX is established since 40 years"
+  },
+  {
+    "objectID": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
+    "href": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
+    "title": "Quarto",
+    "section": "Disadvantages over Word/Powerpoint/Keynote",
+    "text": "Disadvantages over Word/Powerpoint/Keynote\n\n\n\nNo realtime layout changes (fonts, colors, etc.)\nNo realtime positioning of images\nNo advanced animations\nLess advanced spell/grammer checker\nSlower creation of image-heavy documents"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
+    "href": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
+    "title": "Quarto",
+    "section": "Advantages over Word/Powerpoint/Keynote",
+    "text": "Advantages over Word/Powerpoint/Keynote\n\n\n\nFree, no vendor lock-in\nDiffable, gitable, reproducible\nLaTeX equations, code highlighting\nMuch better HTML output\nFaster creation of text-heavy documents"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-bookblogdown",
+    "href": "quarto/quarto.html#advantages-over-bookblogdown",
+    "title": "Quarto",
+    "section": "Advantages over Book/Blogdown",
+    "text": "Advantages over Book/Blogdown\n\n\n\nMore themes/layouts\nMany more output options (e.g. presentations)\nNo dependency on R/RStudio and Hugo\nOne tool for everything and better integration with pandoc\nOpen source licence GPL v2"
+  },
+  {
+    "objectID": "quarto/quarto.html#section",
+    "href": "quarto/quarto.html#section",
+    "title": "Quarto",
+    "section": "",
+    "text": "Quarto Gallery\nLive demo\n\n\n\nShow example HTML and PDF with advanced layout"
+  },
+  {
+    "objectID": "quarto/quarto.html#summary",
+    "href": "quarto/quarto.html#summary",
+    "title": "Quarto",
+    "section": "Summary",
+    "text": "Summary\n\nQuarto can\n\nautogenerate plots and widgets from embedded code snippets\ncross referencing (also between different websites)\nfootnotes, sidenotes\nbibliography\nappendix\nDOI, Google Scholar\n…\n\nQuarto can create HTML, Word, Powerpoint, ePub, Wikis, RTF, Jupyter, InDesign, Websites, Blogs, Books…\n\nQuarto is not a successor of \\(\\text{\\LaTeX}\\)\nQuarto is a \\(\\text{\\LaTeX}\\) generator"
+  },
+  {
+    "objectID": "quarto/quarto.html#section-1",
+    "href": "quarto/quarto.html#section-1",
+    "title": "Quarto",
+    "section": "",
+    "text": "The End\n\n\n\n\n\nhttps://www.unbelievable-machine.com/"
   }
 ]
