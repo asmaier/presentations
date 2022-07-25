@@ -49,6 +49,13 @@
     "text": "date\ntitle\npreview\n\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n \n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
   },
   {
+    "objectID": "Readme.html",
+    "href": "Readme.html",
+    "title": "presentations",
+    "section": "",
+    "text": "This is the source code for my presentations. You can see an overview of all my presentations at\n\nhttps://asmaier.github.io/presentations/"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",

@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asmaier.github.io/presentations/python_type_hints/index.html</loc>
-    <lastmod>2022-07-25T09:44:24.419Z</lastmod>
+    <lastmod>2022-07-25T10:07:16.332Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/index.html</loc>
-    <lastmod>2022-07-25T09:44:24.871Z</lastmod>
+    <lastmod>2022-07-25T10:07:16.822Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/Readme.html</loc>
+    <lastmod>2022-07-25T10:07:17.291Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/about.html</loc>
-    <lastmod>2022-07-25T09:44:25.269Z</lastmod>
+    <lastmod>2022-07-25T10:07:17.712Z</lastmod>
   </url>
 </urlset>
