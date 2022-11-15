@@ -1,6 +1,9 @@
 project:
   type: website
 
+execute:
+  freeze: true
+
 navbar: false
 
 website:
@@ -16,6 +19,3 @@ format:
     theme: journal
     css: styles.css
     toc: true
-
-
-
