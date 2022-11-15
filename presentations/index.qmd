@@ -7,6 +7,8 @@ format:
 
 | date       | title | preview |
 |------------|-------|---------|
+| 2022-07-21 | [Time Series Prediction Part I](timeseries/timeseries.qmd) | <iframe src="timeseries/timeseries.html" width="210rem" height="150rem"></iframe> |
+| 2022-06-30 | [Quarto - A successor to LaTeX?](quarto/quarto.qmd) | <iframe src="quarto/quarto.html" width="210rem" height="150rem"></iframe> |
 | 2021-10-06 | [Dataframes - Why data scientists don't use SQL](https://slides.com/andimai/dataframes) | <iframe src="https://slides.com/andimai/dataframes/embed?style=light" width="210rem" height="150rem"></iframe> |
 | 2020-11-18 | [Streamlit.io - A first look](https://slides.com/andimai/streamlit) | <iframe src="https://slides.com/andimai/streamlit/embed?style=light" width="210rem" height="150rem"></iframe>|
 | 2019-03-12 | [Test Driven Development für Datenwissenschaftler](https://slides.com/andimai/test-driven-development) | <iframe src="https://slides.com/andimai/test-driven-development/embed?style=light" width="210rem" height="150rem"></iframe> |

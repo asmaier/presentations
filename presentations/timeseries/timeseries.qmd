@@ -1,0 +1,342 @@
+---
+title: "Time Series Prediction Part I"
+author: "Dr. Andreas Maier"
+date: "2022-07-21"
+format: 
+    revealjs:
+        reference-location: document
+        logo: um_logo.png
+        slide-number: true
+        footer: <https://www.unbelievable-machine.com/>
+        section-title-footnotes: References
+    beamer:
+        reference-location: document
+        slide-number: true
+        logo: um_logo.png
+        footer: <https://www.unbelievable-machine.com/>
+        section-title-footnotes: References  
+        theme: Madrid  
+jupyter: python3
+execute:
+    cache: true
+---
+
+## Time Series {.smaller}
+
+:::: {.columns}
+:::{.column}
+- Clustering
+    - Dynamic Time Warping
+- Segmentation    
+    - Speech recognition    
+- Classification
+- Anomaly/Outlier Detection
+- Imputation
+- **Forecasting**
+    - Trajectory prediction
+    - Stock Market prediction
+:::
+:::{.column}
+- **Univariate**
+- Multivariate
+- Zerovariate
+    - Delphi Method
+:::
+::::
+
+
+## {.center}
+> "Prediction is the essence of intelligence, and that's what we're trying to do." \
+> \
+> -- <cite>Yann LeCun (2015)</cite> 
+
+## {.center}
+> "Prediction is very difficult, especially if it's about the future!" \
+> \
+> -- <cite>Niels Bohr</cite>
+
+## {.center}
+> "What we can't predict, we call randomness." \
+> \
+> -- <cite>Albert Einstein</cite> 
+
+
+## Understanding Randomness 1
+
+Random walk
+: cumulative sum of random numbers
+```{python}
+#| fig-align: center
+import random
+import itertools
+import seaborn as sns
+random.seed(1789)
+N=10000
+x = range(N)
+series = [random.randrange(-1,2) for i in range(N)]   # random integer numbers -1,0,1
+walk = list(itertools.accumulate(series))
+sns.lineplot(x=x, y=walk);
+```
+
+
+## Understanding Randomness 2
+
+Walk of random walk
+: cumulative sum of a random walk
+
+:::{.r-stack}
+:::{.fragment}
+```{python}
+#| fig-align: center
+walk_of_walk = list(itertools.accumulate(walk))
+sns.lineplot(x=x, y=walk_of_walk);
+```
+:::
+:::{.r-fit-text .fragment}
+Wat??
+:::
+:::{.r-fit-text .fragment style="background: #FFFFFF;"}
+<https://stats.stackexchange.com/questions/580718/properties-of-cumulative-sum-of-a-random-walk>
+:::
+:::
+
+## Pearson correlation coefficient $r$ {.smaller}
+
+![](Correlation_examples2.png)
+
+- Measures linear correlation between two sets of data
+- Equal to the slope of a linear regression model (for standardized data $\sigma_x=\sigma_y=1$)^[[Raschka: What is the difference between Pearson R and Simple Linear Regression?](https://sebastianraschka.com/faq/docs/pearson-r-vs-linear-regr.html)]
+
+$$
+\hat{y} = \phi_0 + \phi_1 x = \phi_0 + \frac{cov(x,y)}{\sigma_x^2} x = \phi_0 + r \frac{\sigma_x}{\sigma_y} x 
+$$
+
+
+## Autocorrelation 1 {.smaller}
+Pearson coefficients between time series and time shifted version of itself
+```{python}
+#| fig-align: center
+import matplotlib.pyplot as plt
+from scipy import stats
+
+fig, ax = plt.subplots(figsize=(4,2))
+sns.lineplot(x=x, y=stats.zscore(walk), ax=ax);
+
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, figsize=(8,2))
+for shift, axis in [(5,ax1),(50,ax2),(500,ax3),(5000,ax4)]:
+    
+    X = stats.zscore(walk[:-shift])
+    Y = stats.zscore(walk[shift:])
+    
+    R = stats.pearsonr(X,Y)[0]
+    
+    axis.set_title(f"Pearson coef.: {R:.2f}")
+    axis.set_xlabel(f"z(t + {shift})")
+    axis.set_ylabel(f"z(t)")
+    
+    sns.scatterplot(x=Y,y=X, s=10, ax=axis, alpha=0.1, );
+fig.tight_layout()    
+```
+
+## Autocorrelation 2 {.smaller}
+
+```{python}
+#| fig-align: center
+import pandas as pd
+import darts
+from darts.utils.statistics import plot_acf, check_seasonality
+ds_walk = pd.Series(walk)
+ts_walk = darts.TimeSeries.from_series(ds_walk)
+
+fig, (ax1, ax2) = plt.subplots(2,1, figsize=(5,3))
+ts_walk.plot(ax=ax1)
+ax1.set_title("Random walk")
+ax2.set_title("Autocorrelation (Darts)")
+ax2.set_xlabel("lag")
+plot_acf(ts_walk, max_lag=9000, axis=ax2)
+fig.tight_layout()
+```
+<!-- The footnote here seems to break the layout. One needs to set figsize=(5,3) in the python
+code above to fix the layout -->
+- ACF (auto correlation function) of non-stationary data decreases slowly^[[Hyndman (2021): Forecasting: principles and practice, chapter 9.1](https://otexts.com/fpp3/stationarity.html)]
+- random walk is non-stationary
+
+## Stationarity
+
+Statistical properties don't change over time
+
+![](stationarity.png) ^[[Palachy (2019): Towards Data Science | Stationarity in time series analysis](https://towardsdatascience.com/stationarity-in-time-series-analysis-90c94f27322)]
+
+- A stationary time series has no seasonality or trend.
+- Many tools, statistical tests and models (ARIMA!) rely on stationarity.
+
+## Differencing {.smaller}
+
+```{python}
+#| fig-align: center
+fig, (ax1, ax2) = plt.subplots(2,1)
+
+walk_diff = ts_walk[:1000].diff()
+walk_diff.plot(ax=ax1)
+ax1.set_title("")
+ax2.set_xlabel("lag")
+plot_acf(walk_diff, axis=ax2)
+fig.tight_layout()
+```
+
+- Differencing of degree $d$ can help to stabilise the mean eliminating/reducing trend and seasonality.
+- Transformations such as logarithms can help to stabilise the variance
+- ACF is zero for first derivative of random walk
+
+## Partial autocorrelation 1
+
+
+- Direct linear correlation $r_k$ between $y$ and $x_k$
+    $$
+    \hat{y} = \phi_0 + 0 \cdot x_1 + ... +  r_k x_k
+    $$
+- Partial correlation $p_k$ between $y$ and $x_k$
+    $$
+    \hat{y} = \phi_0 + \phi_1 x_1 + ... +  p_k x_k
+    $$ 
+    Dependency on $x_1, x_2, ...$ is absorbed into $\phi_1, \phi_2, ...$ 
+
+**Partial correlation is linear correlation between $y$ and $x_k$ with
+indirect correlation to $x_1, x_2, ...$ removed.**^[[Pen State: STAT 510 |
+Applied Time Series Analysis, chapter 2.2](https://online.stat.psu.edu/stat510/lesson/2/2.2)] 
+
+## Partial autocorrelation 2 {.smaller}
+
+```{python}
+#| fig-align: center
+from darts.utils.statistics import plot_pacf
+fig, (ax1, ax2) = plt.subplots(2,1)
+ts_walk.plot(ax=ax1)
+ax1.set_title("Random walk")
+ax2.set_title("Partial autocorrelation (Darts)")
+ax2.set_xlabel("lag")
+plot_pacf(ts_walk, axis=ax2)
+fig.tight_layout()
+```
+
+- PACF (Partial autocorellation function) is zero for random walk except for lag 1 
+
+## Autoregression model {.smaller}
+
+- forecast $y_t$ using a linear combination of past values
+    $$
+    \hat{y}_t = \phi_0 + \phi_1 y_{t-1} + \phi_2 y_{t-2} + ... + \phi_p y_{t-p} 
+    $$
+- Autoregression means linear regression with lagged version of itself (similar to autocorrelation)
+- AR(p) means $\phi_0, ..., \phi_p \neq 0$
+- Autoregressive process can be used to generate data from random white noise $\epsilon_t$ and fixed parameters $\phi_k$
+    $$
+    y_t = \epsilon_t + \phi_0 + \phi_1 y_{t-1} + \phi_2 y_{t-2} + ... + \phi_p y_{t-p} 
+    $$
+- For $\phi_0 = 0$ and $\phi_1=1$ an AR(1) process is a random walk
+
+
+## Moving average model {.smaller}
+- The name "moving average" is technically incorrect ^[[Stackexchange: why-are-maq-time-series-models-called-moving-averages](https://stats.stackexchange.com/questions/58242/why-are-maq-time-series-models-called-moving-averages)] 
+- Better would be lagged error regression 
+- forecast $y_t$ using a linear combination of past forecast errors
+    $$
+    \hat{y}_t = \theta_0 + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + ... + \theta_q \epsilon_{t-q} 
+    $$
+- MA(q) cannot be fitted like an ordinary least square (OLS), because the forecast errors are not known
+- [Example algorithm](https://stats.stackexchange.com/questions/505873/how-to-manually-fit-ma1-model-with-ols): Set initial values for $\theta_k$ and $\epsilon_k$, then
+    - For i=1..N do
+        1. Compute error terms for all $t$: $\epsilon_t$ = $y_t - \hat{y}_t$
+        2. Run a regression of $y_t$ against $\hat{y}_t$ and update $\theta_k$
+        3. Repeat
+- Like(?) [Iteratively_reweighted_least_squares](https://en.wikipedia.org/wiki/Iteratively_reweighted_least_squares) or similar iterative process to estimate $\theta_k$
+
+## ARIMA {.smaller}
+- Autoregressive integrated moving average model combines AR(p), differencing/integrating I(d) and MA(q) 
+$$
+\hat{y}_t = c + \phi_1 y^{(d)}_{t-1} + ... + \phi_p y^{(d)}_{t-p} + \theta_1 \epsilon_{t-1} ... + \theta_q \epsilon_{t-q}
+$$
+
+|Model| equivalent to|
+|-|-|
+| ARIMA(0,1,0) | Random Walk (with drift) |
+| ARIMA(0,1,1) | simple exponential smoothing ETS(A,N,N)| 
+| ARIMA(1,0,0) | discrete Ornstein-Uhlenbeck process ^[[Wikipedia: Autoregressive_model](https://en.wikipedia.org/wiki/Autoregressive_model#Explicit_mean/difference_form_of_AR(1)_process)] |
+
+- To find the best fitting ARIMA model one can use the Box-Jenkins-Method
+
+## Box-Jenkins Method {.smaller}
+
+1. Make the time series stationary (e.g. standardization, differencing $d$-times, ...)
+2. Use ACF plot and PACF plot to identify the parameter $p$ and $q$
+3. Fitting the parameters of the ARIMA(p,d,q) model. This can be done with [Hannan–Rissanen (1982)](https://doi.org/10.2307/2335856) algorithm
+    1. AR(m) model (with $m > max(p, q)$) is fitted to the data
+    2. Compute error terms for all $t$: $\epsilon_t$ = $y_t - \hat{y}_t$
+    3. Regress $y_t$ on $y^{(d)}_{t-1},..,y^{(d)}_{t-p},\epsilon_{t-1},...,\epsilon_{t-q}$
+    4. To improve accurancy optinally regress again with updated $\phi,\theta$ from step 3
+
+    Other algorithms (maximizing likelihood) are often used in practice ^[[Brockwell, Davis (2016) Introduction to Time Series and Forecasting, chapter 5](https://eprints.ukh.ac.id/id/eprint/232/)] ^[[Hyndman (2008). Automatic Time Series Forecasting: The forecast Package for R](https://doi.org/10.18637/jss.v027.i03)]
+4. Statistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)
+5. Once the residuals look like white noise, do the forecast
+
+**Nowadays all these steps are automated by tools like AutoARIMA etc.** 
+
+
+## Why???
+
+- Why combine AR and MA ?
+    - [Wold's theorem](https://en.wikipedia.org/wiki/Wold%27s_theorem) ?
+
+- AR is analogeous to linear regression, but what is MA analogeous to outside of time series analysis?
+
+- Why is ARIMA better than AR alone? 
+
+
+<!--
+## Autocorrelation add-on
+
+:::{.r-stack}
+:::{.fragment .fade-out fragment-index=0}
+$$
+c(l) = \sum_{t=-\infty}^{t=\infty} f^*(t)f(t + l) 
+$$
+:::
+:::{.fragment .current-visible fragment-index=0}
+$$
+c(l) = \frac{1}{2N}\sum_{t=-N}^{t=N} f^*(t)f(t + l) 
+$$
+:::
+:::{.fragment .current-visible}
+$$
+c(l) = \frac{1}{N}\sum_{t=1}^{t=N} f^*(t)f(t + l) 
+$$
+:::
+:::{.fragment}
+$$
+c(l) = \frac{1}{N}\sum_{t=1}^{t=N} z^*(l)z(t + l) 
+$$
+with z-transform to mean=0 and std=1
+$$
+z(t)= \frac{f(t) - \bar{f}}{\sigma_f} 
+$$
+Equal to Pearson correlation coefficient 
+
+for $x=z(t)$ and $y=z(t+l)$
+:::
+:::
+
+
+
+## Predicting a random walk
+
+Is it possible to predict a random walk?
+
+No, but...
+
+> Anyone who attempts to generate random numbers by deterministic means is, of course, living in a state of sin. \
+> \
+> -- <cite>John v. Neumann</cite>
+
+Could it be possible that a huge neural network can model the deterministic
+algorithm and figure out the seed of the random number generator?
+-->

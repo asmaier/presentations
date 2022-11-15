@@ -1,0 +1,122 @@
+---
+title: "Quarto"
+subtitle: "A successor to LaTeX?"
+author: Dr. Andreas Maier
+date: 2022-06-30
+format: 
+    revealjs:
+        preview-links: auto
+        theme: default
+        logo: um_logo.png
+        slide-number: true
+        footer: <https://www.unbelievable-machine.com/>
+---
+
+## Overview
+
+Quarto® is an open-source scientific and technical publishing system built on Pandoc.
+
+- Author with pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
+- Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF , MS Word, Powerpoint, ePub, and more.
+- Support for interactive documents (Jupyter, Shiny, Observable)
+- Quarto is the successor to Bookdown/Blogdown
+
+## Advantages over LaTeX
+:::: {.columns}
+::: {.column width="60%"}
+- Create dynamic content with Python, R, Julia, and Observable.
+- Interactive widgets (Shiny, Jupyter widgets, Observable JS)
+- Support for many more output formats and even whole websites and blogs
+:::
+::: {.column width="40%"}
+![](vienna.jpeg)
+:::
+::::
+
+## Disadvantages over LaTeX
+
+:::: {.columns}
+::: {.column width="60%"}
+- Pandoc markdown is not a (Turing-) complete programming language
+- LaTeX is "the specialist" for print output
+- LaTeX is established since 40 years
+:::
+::: {.column width="40%"}
+![](mnras.jpeg)
+:::
+::::
+
+## Disadvantages over Word/Powerpoint/Keynote
+:::: {.columns}
+::: {.column width="60%"}
+- No realtime layout changes (fonts, colors, etc.) 
+- No realtime positioning of images
+- No advanced animations
+- Less advanced spell/grammer checker
+- Slower creation of image-heavy documents
+:::
+::: {.column width="40%"}
+![](1052px-Word_win_1906.png)
+:::
+::::
+
+## Advantages over Word/Powerpoint/Keynote
+:::: {.columns}
+::: {.column width="60%"}
+- Free, no vendor lock-in
+- Diffable, gitable, reproducible
+- LaTeX equations, code highlighting
+- Much better HTML output
+- Faster creation of text-heavy documents
+:::
+::: {.column width="40%"}
+![](keynote.png)
+![](powerpoint.png)
+:::
+::::
+
+## Advantages over Book/Blogdown
+:::: {.columns}
+::: {.column width="60%"}
+- More themes/layouts
+- Many more output options (e.g. presentations)
+- No dependency on R/RStudio and Hugo
+- One tool for everything and better integration with pandoc
+- Open source licence GPL v2
+:::
+::: {.column width="40%"}
+![](blogdown.png)
+![](bookdown.png)
+:::
+::::
+
+## {.center} 
+:::{#title-slide .center}
+- [Quarto Gallery](https://quarto.org/docs/gallery/)
+- Live demo
+:::
+
+::: {.notes}
+Show example HTML and PDF with advanced layout
+:::
+
+## Summary{.smaller}
+- Quarto can
+    + autogenerate plots and widgets from embedded code snippets 
+    + cross referencing (also between different websites)
+    + footnotes, sidenotes 
+    + bibliography
+    + appendix
+    + DOI, Google Scholar
+    + ...
+- Quarto can create HTML, Word, Powerpoint, ePub, Wikis, RTF, Jupyter, InDesign, Websites, Blogs, Books...    
+- Quarto is not a successor of $\text{\LaTeX}$
+- Quarto is a $\text{\LaTeX}$ generator
+
+## {.center} 
+:::{#title-slide .center}
+:::{style="font-size:300%"}
+The End
+:::
+:::
+
