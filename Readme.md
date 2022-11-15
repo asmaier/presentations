@@ -23,6 +23,12 @@ Then navigate to each subdirectory with a `Pipfile` and render only this subdire
 Then navigate to the global directory and render the complete project. The `freeze`
 option will skip content that was already rendered. 
 
+To publish this website use
+
+    $ quarto publish gh-pages
+
+
+
 
 
 
