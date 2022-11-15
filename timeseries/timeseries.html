@@ -5,12 +5,11 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.615">
+  <meta name="generator" content="quarto-1.2.269">
 
   <meta name="author" content="Dr.&nbsp;Andreas Maier">
-  <meta name="dcterms.date" content="2022-07-21">
   <title>presentations - Time Series Prediction Part I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,10 +19,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -315,16 +319,23 @@
     }
   </style>
 </head>
-<body>
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Time Series Prediction Part I</h1>
-  <p class="author">Dr.&nbsp;Andreas Maier</p>
-  <p class="date">2022-07-21</p>
-</section>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Dr.&nbsp;Andreas Maier 
+</div>
+</div>
+</div>
+
+  <p class="date">7/21/22</p>
+</section>
 <section id="time-series" class="slide level2 smaller">
 <h2>Time Series</h2>
 <div class="columns">
@@ -427,7 +438,7 @@ cumulative sum of a random walk
 <p><img data-src="Correlation_examples2.png"></p>
 <ul>
 <li>Measures linear correlation between two sets of data</li>
-<li>Equal to the slope of a linear regression model (for standardized data <span class="math inline">\(\sigma_x=\sigma_y=1\)</span>)<a href="#/fn1" class="footnote-ref" id="fnref1" role="doc-noteref" onclick="return false;"><sup>1</sup></a></li>
+<li>Equal to the slope of a linear regression model (for standardized data <span class="math inline">\(\sigma_x=\sigma_y=1\)</span>)<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></li>
 </ul>
 <p><span class="math display">\[
 \hat{y} = \phi_0 + \phi_1 x = \phi_0 + \frac{cov(x,y)}{\sigma_x^2} x = \phi_0 + r \frac{\sigma_x}{\sigma_y} x
@@ -467,14 +478,14 @@ cumulative sum of a random walk
 <!-- The footnote here seems to break the layout. One needs to set figsize=(5,3) in the python
 code above to fix the layout -->
 <ul>
-<li>ACF (auto correlation function) of non-stationary data decreases slowly<a href="#/fn2" class="footnote-ref" id="fnref2" role="doc-noteref" onclick="return false;"><sup>2</sup></a></li>
+<li>ACF (auto correlation function) of non-stationary data decreases slowly<a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a></li>
 <li>random walk is non-stationary</li>
 </ul>
 <aside></aside></section>
 <section id="stationarity" class="slide level2">
 <h2>Stationarity</h2>
 <p>Statistical properties don’t change over time</p>
-<p><img data-src="stationarity.png"> <a href="#/fn3" class="footnote-ref" id="fnref3" role="doc-noteref" onclick="return false;"><sup>3</sup></a></p>
+<p><img data-src="stationarity.png"> <a href="#/footnotes" class="footnote-ref" id="fnref3" role="doc-noteref" data-footnote-href="#/fn3" onclick=""><sup>3</sup></a></p>
 <ul>
 <li>A stationary time series has no seasonality or trend.</li>
 <li>Many tools, statistical tests and models (ARIMA!) rely on stationarity.</li>
@@ -499,7 +510,7 @@ code above to fix the layout -->
   \hat{y} = \phi_0 + \phi_1 x_1 + ... +  p_k x_k
   \]</span> Dependency on <span class="math inline">\(x_1, x_2, ...\)</span> is absorbed into <span class="math inline">\(\phi_1, \phi_2, ...\)</span></li>
 </ul>
-<p><strong>Partial correlation is linear correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_k\)</span> with indirect correlation to <span class="math inline">\(x_1, x_2, ...\)</span> removed.</strong><a href="#/fn4" class="footnote-ref" id="fnref4" role="doc-noteref" onclick="return false;"><sup>4</sup></a></p>
+<p><strong>Partial correlation is linear correlation between <span class="math inline">\(y\)</span> and <span class="math inline">\(x_k\)</span> with indirect correlation to <span class="math inline">\(x_1, x_2, ...\)</span> removed.</strong><a href="#/footnotes" class="footnote-ref" id="fnref4" role="doc-noteref" data-footnote-href="#/fn4" onclick=""><sup>4</sup></a></p>
 <aside></aside></section>
 <section id="partial-autocorrelation-2" class="slide level2 smaller">
 <h2>Partial autocorrelation 2</h2>
@@ -525,7 +536,7 @@ code above to fix the layout -->
 <section id="moving-average-model" class="slide level2 smaller">
 <h2>Moving average model</h2>
 <ul>
-<li>The name “moving average” is technically incorrect <a href="#/fn5" class="footnote-ref" id="fnref5" role="doc-noteref" onclick="return false;"><sup>5</sup></a></li>
+<li>The name “moving average” is technically incorrect <a href="#/footnotes" class="footnote-ref" id="fnref5" role="doc-noteref" data-footnote-href="#/fn5" onclick=""><sup>5</sup></a></li>
 <li>Better would be lagged error regression</li>
 <li>forecast <span class="math inline">\(y_t\)</span> using a linear combination of past forecast errors <span class="math display">\[
   \hat{y}_t = \theta_0 + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + ... + \theta_q \epsilon_{t-q}
@@ -546,11 +557,10 @@ code above to fix the layout -->
 <section id="arima" class="slide level2 smaller">
 <h2>ARIMA</h2>
 <ul>
-<li>Autoregressive integrated moving average model combines AR(p), differencing/integrating I(d) and MA(q)</li>
-</ul>
-<p><span class="math display">\[
+<li>Autoregressive integrated moving average model combines AR(p), differencing/integrating I(d) and MA(q) <span class="math display">\[
 \hat{y}_t = c + \phi_1 y^{(d)}_{t-1} + ... + \phi_p y^{(d)}_{t-p} + \theta_1 \epsilon_{t-1} ... + \theta_q \epsilon_{t-q}
-\]</span></p>
+\]</span></li>
+</ul>
 <table>
 <thead>
 <tr class="header">
@@ -569,7 +579,7 @@ code above to fix the layout -->
 </tr>
 <tr class="odd">
 <td>ARIMA(1,0,0)</td>
-<td>discrete Ornstein-Uhlenbeck process <a href="#/fn6" class="footnote-ref" id="fnref6" role="doc-noteref" onclick="return false;"><sup>6</sup></a></td>
+<td>discrete Ornstein-Uhlenbeck process <a href="#/footnotes" class="footnote-ref" id="fnref6" role="doc-noteref" data-footnote-href="#/fn6" onclick=""><sup>6</sup></a></td>
 </tr>
 </tbody>
 </table>
@@ -589,7 +599,7 @@ code above to fix the layout -->
 <li>Regress <span class="math inline">\(y_t\)</span> on <span class="math inline">\(y^{(d)}_{t-1},..,y^{(d)}_{t-p},\epsilon_{t-1},...,\epsilon_{t-q}\)</span></li>
 <li>To improve accurancy optinally regress again with updated <span class="math inline">\(\phi,\theta\)</span> from step 3</li>
 </ol>
-Other algorithms (maximizing likelihood) are often used in practice <a href="#/fn7" class="footnote-ref" id="fnref7" role="doc-noteref" onclick="return false;"><sup>7</sup></a> <a href="#/fn8" class="footnote-ref" id="fnref8" role="doc-noteref" onclick="return false;"><sup>8</sup></a></li>
+Other algorithms (maximizing likelihood) are often used in practice <a href="#/footnotes" class="footnote-ref" id="fnref7" role="doc-noteref" data-footnote-href="#/fn7" onclick=""><sup>7</sup></a> <a href="#/footnotes" class="footnote-ref" id="fnref8" role="doc-noteref" data-footnote-href="#/fn8" onclick=""><sup>8</sup></a></li>
 <li>Statistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)</li>
 <li>Once the residuals look like white noise, do the forecast</li>
 </ol>
@@ -610,58 +620,28 @@ Other algorithms (maximizing likelihood) are often used in practice <a href="#/f
 
 :::{.r-stack}
 :::{.fragment .fade-out fragment-index=0}
-
-
-
 $$
 c(l) = \sum_{t=-\infty}^{t=\infty} f^*(t)f(t + l) 
 $$
-
-
-
 :::
 :::{.fragment .current-visible fragment-index=0}
-
-
-
 $$
 c(l) = \frac{1}{2N}\sum_{t=-N}^{t=N} f^*(t)f(t + l) 
 $$
-
-
-
 :::
 :::{.fragment .current-visible}
-
-
-
 $$
 c(l) = \frac{1}{N}\sum_{t=1}^{t=N} f^*(t)f(t + l) 
 $$
-
-
-
 :::
 :::{.fragment}
-
-
-
 $$
 c(l) = \frac{1}{N}\sum_{t=1}^{t=N} z^*(l)z(t + l) 
 $$
-
-
-
 with z-transform to mean=0 and std=1
-
-
-
 $$
 z(t)= \frac{f(t) - \bar{f}}{\sigma_f} 
 $$
-
-
-
 Equal to Pearson correlation coefficient 
 
 for $x=z(t)$ and $y=z(t+l)$
@@ -689,17 +669,17 @@ algorithm and figure out the seed of the random number generator?
 <p><a href="https://www.unbelievable-machine.com/" class="uri">https://www.unbelievable-machine.com/</a></p>
 </div>
 </section>
-<section class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>References</h2>
+<section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>References</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://sebastianraschka.com/faq/docs/pearson-r-vs-linear-regr.html">Raschka: What is the difference between Pearson R and Simple Linear Regression?</a></p></li>
-<li id="fn2" role="doc-endnote"><p><a href="https://otexts.com/fpp3/stationarity.html">Hyndman (2021): Forecasting: principles and practice, chapter 9.1</a></p></li>
-<li id="fn3" role="doc-endnote"><p><a href="https://towardsdatascience.com/stationarity-in-time-series-analysis-90c94f27322">Palachy (2019): Towards Data Science | Stationarity in time series analysis</a></p></li>
-<li id="fn4" role="doc-endnote"><p><a href="https://online.stat.psu.edu/stat510/lesson/2/2.2">Pen State: STAT 510 | Applied Time Series Analysis, chapter 2.2</a></p></li>
-<li id="fn5" role="doc-endnote"><p><a href="https://stats.stackexchange.com/questions/58242/why-are-maq-time-series-models-called-moving-averages">Stackexchange: why-are-maq-time-series-models-called-moving-averages</a></p></li>
-<li id="fn6" role="doc-endnote"><p><a href="https://en.wikipedia.org/wiki/Autoregressive_model#Explicit_mean/difference_form_of_AR(1)_process">Wikipedia: Autoregressive_model</a></p></li>
-<li id="fn7" role="doc-endnote"><p><a href="https://eprints.ukh.ac.id/id/eprint/232/">Brockwell, Davis (2016) Introduction to Time Series and Forecasting, chapter 5</a></p></li>
-<li id="fn8" role="doc-endnote"><p><a href="https://doi.org/10.18637/jss.v027.i03">Hyndman (2008). Automatic Time Series Forecasting: The forecast Package for R</a></p></li>
+<li id="fn1"><p><a href="https://sebastianraschka.com/faq/docs/pearson-r-vs-linear-regr.html">Raschka: What is the difference between Pearson R and Simple Linear Regression?</a></p></li>
+<li id="fn2"><p><a href="https://otexts.com/fpp3/stationarity.html">Hyndman (2021): Forecasting: principles and practice, chapter 9.1</a></p></li>
+<li id="fn3"><p><a href="https://towardsdatascience.com/stationarity-in-time-series-analysis-90c94f27322">Palachy (2019): Towards Data Science | Stationarity in time series analysis</a></p></li>
+<li id="fn4"><p><a href="https://online.stat.psu.edu/stat510/lesson/2/2.2">Pen State: STAT 510 | Applied Time Series Analysis, chapter 2.2</a></p></li>
+<li id="fn5"><p><a href="https://stats.stackexchange.com/questions/58242/why-are-maq-time-series-models-called-moving-averages">Stackexchange: why-are-maq-time-series-models-called-moving-averages</a></p></li>
+<li id="fn6"><p><a href="https://en.wikipedia.org/wiki/Autoregressive_model#Explicit_mean/difference_form_of_AR(1)_process">Wikipedia: Autoregressive_model</a></p></li>
+<li id="fn7"><p><a href="https://eprints.ukh.ac.id/id/eprint/232/">Brockwell, Davis (2016) Introduction to Time Series and Forecasting, chapter 5</a></p></li>
+<li id="fn8"><p><a href="https://doi.org/10.18637/jss.v027.i03">Hyndman (2008). Automatic Time Series Forecasting: The forecast Package for R</a></p></li>
 </ol>
 </section>
     </div>
@@ -915,6 +895,24 @@ algorithm and figure out the seed of the random number generator?
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -933,7 +931,24 @@ algorithm and figure out the seed of the random number generator?
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -963,31 +978,50 @@ algorithm and figure out the seed of the random number generator?
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>
