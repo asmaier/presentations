@@ -9,6 +9,9 @@ pandas = "*"
 seaborn = "*"
 darts = "*"
 jupyter-cache = "*"
+pycaret = "*"
+pytest = "*"
+sktime = "<0.18"
 
 [dev-packages]
 

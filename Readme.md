@@ -27,10 +27,3 @@ To publish this website use
 
     $ quarto publish gh-pages
 
-
-
-
-
-
-
- 

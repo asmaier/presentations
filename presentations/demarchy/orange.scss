@@ -1,0 +1,20 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: helvetica,arial,sans-serif !default;
+
+// colors
+$body-bg: #000 !default;
+$body-color: #fff !default;
+$link-color: #fff !default;
+$link-color-hover: #ff7900 !default;
+
+// headings
+$presentation-heading-font: helvetica,arial,sans-serif !default;
+$presentation-heading-color: #ff7900 !default;
+
+/*-- scss:rules --*/
+
+.reveal a {
+  line-height: 1.3em;
+}
