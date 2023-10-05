@@ -56,6 +56,335 @@
     "text": "End\nOriginal presentation on github gist:\n\nInvestigate political landscape (using Wahl-O-Mat data)"
   },
   {
+    "objectID": "quarto/quarto.html#overview",
+    "href": "quarto/quarto.html#overview",
+    "title": "Quarto",
+    "section": "Overview",
+    "text": "Overview\nQuarto® is an open-source scientific and technical publishing system built on Pandoc.\n\nAuthor with pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\nPublish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF , MS Word, Powerpoint, ePub, and more.\nSupport for interactive documents (Jupyter, Shiny, Observable)\nQuarto is the successor to Bookdown/Blogdown"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-latex",
+    "href": "quarto/quarto.html#advantages-over-latex",
+    "title": "Quarto",
+    "section": "Advantages over LaTeX",
+    "text": "Advantages over LaTeX\n\n\n\nCreate dynamic content with Python, R, Julia, and Observable.\nInteractive widgets (Shiny, Jupyter widgets, Observable JS)\nSupport for many more output formats and even whole websites and blogs"
+  },
+  {
+    "objectID": "quarto/quarto.html#disadvantages-over-latex",
+    "href": "quarto/quarto.html#disadvantages-over-latex",
+    "title": "Quarto",
+    "section": "Disadvantages over LaTeX",
+    "text": "Disadvantages over LaTeX\n\n\n\nPandoc markdown is not a (Turing-) complete programming language\nLaTeX is “the specialist” for print output\nLaTeX is established since 40 years"
+  },
+  {
+    "objectID": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
+    "href": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
+    "title": "Quarto",
+    "section": "Disadvantages over Word/Powerpoint/Keynote",
+    "text": "Disadvantages over Word/Powerpoint/Keynote\n\n\n\nNo realtime layout changes (fonts, colors, etc.)\nNo realtime positioning of images\nNo advanced animations\nLess advanced spell/grammer checker\nSlower creation of image-heavy documents"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
+    "href": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
+    "title": "Quarto",
+    "section": "Advantages over Word/Powerpoint/Keynote",
+    "text": "Advantages over Word/Powerpoint/Keynote\n\n\n\nFree, no vendor lock-in\nDiffable, gitable, reproducible\nLaTeX equations, code highlighting\nMuch better HTML output\nFaster creation of text-heavy documents"
+  },
+  {
+    "objectID": "quarto/quarto.html#advantages-over-bookblogdown",
+    "href": "quarto/quarto.html#advantages-over-bookblogdown",
+    "title": "Quarto",
+    "section": "Advantages over Book/Blogdown",
+    "text": "Advantages over Book/Blogdown\n\n\n\nMore themes/layouts\nMany more output options (e.g. presentations)\nNo dependency on R/RStudio and Hugo\nOne tool for everything and better integration with pandoc\nOpen source licence GPL v2"
+  },
+  {
+    "objectID": "quarto/quarto.html#section",
+    "href": "quarto/quarto.html#section",
+    "title": "Quarto",
+    "section": "",
+    "text": "Quarto Gallery\nLive demo\n\n\n\nShow example HTML and PDF with advanced layout"
+  },
+  {
+    "objectID": "quarto/quarto.html#summary",
+    "href": "quarto/quarto.html#summary",
+    "title": "Quarto",
+    "section": "Summary",
+    "text": "Summary\n\nQuarto can\n\nautogenerate plots and widgets from embedded code snippets\ncross referencing (also between different websites)\nfootnotes, sidenotes\nbibliography\nappendix\nDOI, Google Scholar\n…\n\nQuarto can create HTML, Word, Powerpoint, ePub, Wikis, RTF, Jupyter, InDesign, Websites, Blogs, Books…\n\nQuarto is not a successor of \\(\\text{\\LaTeX}\\)\nQuarto is a \\(\\text{\\LaTeX}\\) generator"
+  },
+  {
+    "objectID": "quarto/quarto.html#section-1",
+    "href": "quarto/quarto.html#section-1",
+    "title": "Quarto",
+    "section": "",
+    "text": "The End\n\n\n\n\n\nhttps://www.unbelievable-machine.com/"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#history",
+    "href": "operations_research/orintro_report_pandoc.html#history",
+    "title": "Introduction to Operations Research",
+    "section": "History",
+    "text": "History\n\n1939 Leonid Kantorowitch (USSR) : The Mathematical Method of Production Planning and Organization =&gt; Linear Programming (LP)\nWW2: First use of OR in the West\n\noptimal placement of radar stations in UK\noptimal convoy size against german submarine attacks\noptimization of allied air raids\n\n1947 Georg Dantzig (USA): Simplex algorithm for LP\n\n1960s Land and Doig (British Petroleum): Branch and Bound meta algorithm"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#examples-stigler-diet",
+    "href": "operations_research/orintro_report_pandoc.html#examples-stigler-diet",
+    "title": "Introduction to Operations Research",
+    "section": "Examples: Stigler diet",
+    "text": "Examples: Stigler diet\nWhich quantities a 70kg male would have to consume from 77 different foods to\n\nfulfill the recommended intake of 9 different nutrients in 1943\nkeeping expense at a minimum (prices from 1939)\n\nLP solved by trial and error (before Simplex) by Stigler in 1945.\nSee\n\nhttps://en.wikipedia.org/wiki/Stigler_diet\nhttps://www.kaggle.com/code/nicapotato/optimisation-101-with-or-tools/notebook"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#examples-stigler-diet-2",
+    "href": "operations_research/orintro_report_pandoc.html#examples-stigler-diet-2",
+    "title": "Introduction to Operations Research",
+    "section": "Examples: Stigler diet 2",
+    "text": "Examples: Stigler diet 2\nLater Dantzig\n\nimproved Stiglers solution with Simplex algorithm\ntried to find the optimal diet to loose weight with Simplex on a computer.\n\nHe failed (because he didn’t include upper limit constraints)\n\nComputer recommended ridiculous amounts of apple cider, bran, boullion cubes\nHis wifes diet for him was superior and he lost 11 kg\n\nSee\n\nDantzig (1990): The Diet Problem"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#examples-optimizing-the-ussr",
+    "href": "operations_research/orintro_report_pandoc.html#examples-optimizing-the-ussr",
+    "title": "Introduction to Operations Research",
+    "section": "Examples: Optimizing the USSR",
+    "text": "Examples: Optimizing the USSR\n1950s - 1970s : Kantorowitch et. al. try to use OR/LP to optimize central planning in USSR\nBut failure due to\n\nToo many variables - too little compute power at that time\nNon-linearities\nHow to choose a correct function to optimize for society an for innovations?\nData quality (directors lied about capacities of factories)\n\nSee\n\nhttps://chris-said.io/2016/05/11/optimizing-things-in-the-ussr/\nSpufford (2012): Red Plenty"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#tooling-commercial-only",
+    "href": "operations_research/orintro_report_pandoc.html#tooling-commercial-only",
+    "title": "Introduction to Operations Research",
+    "section": "Tooling: Commercial only?",
+    "text": "Tooling: Commercial only?\n\nOR is much older field than ML/AI\nrooted in (secret) military research or patented by oil companies\ndriven by math proofs not by code\nmathematicians cannot code\n\nExamples:\n\nFICO Express, IBM CPLEX, MOSEK, GUROBI, LocalSolver\nMATLAB, Mathematica\n\nSee\n\nWhy is the programming code of many algorithms not public in the OR community?"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#tooling-open-and-free-solvers",
+    "href": "operations_research/orintro_report_pandoc.html#tooling-open-and-free-solvers",
+    "title": "Introduction to Operations Research",
+    "section": "Tooling: Open and free solvers",
+    "text": "Tooling: Open and free solvers\n\nOptaPlanner (Java)\nCOIN-OR (C/C++)\nSCIP (C/C++, wrappers for Python, Julia, Java, …), Zuse Institute Berlin, FU Dahlem\nscipy.optimize (Python)\nGoogle OR-Tools (Python, C++, Java, C#)\n\nSee\n\nList of implementations for common OR problems"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#google-or-tools",
+    "href": "operations_research/orintro_report_pandoc.html#google-or-tools",
+    "title": "Introduction to Operations Research",
+    "section": "Google OR-Tools",
+    "text": "Google OR-Tools\n\nOpen source software for combinatorial optimization\n\nVehicle routing, Bin packing, Scheduling\nGraph algorithm\nLinear and Mixed-Integer programming\n\nOR-Tools uses SOTA algorithms to narrow down vast number of possible solutions to optimal solution\nWrapper around SCIP, GUROBI, CPLEX, XPRESS"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#introduction-lp-with-or-tools",
+    "href": "operations_research/orintro_report_pandoc.html#introduction-lp-with-or-tools",
+    "title": "Introduction to Operations Research",
+    "section": "Introduction LP with OR-Tools",
+    "text": "Introduction LP with OR-Tools\nMaximize \\(3x + y\\) subject to the following constraints: \\[\n0 \\leq x \\leq 1 \\\\\n0 \\leq y \\leq 2 \\\\\nx + y \\leq 2\n\\]\nThis is a LP problem with continuous variables.\nsee\n\nhttps://developers.google.com/optimization/introduction/python"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#stieglers-diet-remarks",
+    "href": "operations_research/orintro_report_pandoc.html#stieglers-diet-remarks",
+    "title": "Introduction to Operations Research",
+    "section": "Stieglers diet remarks",
+    "text": "Stieglers diet remarks\n\n“No one recommends these diets for anyone, let alone everyone.” (Stigler)\n\nMy observation: The amount of iron for spinach is 10x as high as in reality. Fixing this does not change the result. So why is spinach included in the diet?"
+  },
+  {
+    "objectID": "operations_research/orintro_report_pandoc.html#the-end",
+    "href": "operations_research/orintro_report_pandoc.html#the-end",
+    "title": "Introduction to Operations Research",
+    "section": "The end",
+    "text": "The end\nGoogle OR-Tools seem the best free open-source tool for solving OR problems:\n\ngood documentation\nmany examples\ngurobipy has a nicer DSL for defining lists/arrays of constraints\ngurobipy free trial is limited to 2000 variables, OR-Tools are unlimited\n\nNext session: How to solve the facility location problem with OR-Tools and apply that to solve the Shell Hackathon.\nEat your spinach - Not for the iron, but for the Vitamin A!\n\n\n\nhttps://www.unbelievable-machine.com/"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#introduction",
+    "href": "demarchy/demarchy.html#introduction",
+    "title": "Democracy without elections",
+    "section": "Introduction",
+    "text": "Introduction\n\nFor more than two thousand years, until the 18th century, democracy was seen as the rule of the people, when political institutions emerge directly from the people largely by lot(tery).\n\n\nThe process to select government officials by lot is called sortition.\nAlternative name for government using sortition: demarchy."
+  },
+  {
+    "objectID": "demarchy/demarchy.html#ancient-athens",
+    "href": "demarchy/demarchy.html#ancient-athens",
+    "title": "Democracy without elections",
+    "section": "Ancient Athens",
+    "text": "Ancient Athens\n\nEs gilt z. B. für demokratisch, daß die Staatsämter durchs Los, für oligarchisch, daß sie durch Wahl besetzt werden“\n– Aristoteles: Πολιτικά (Politik), 345 bis 325 v. Chr.\n\nEligible for public offices:\n\nall 30 year old male\nno women, no slaves, no foreigners\nin total 10% of athens population (30-40000)\n\nDeputies, judges and most senior officals were determined by lot.\n\nAssembly of 6000 drawn by lot\nCouncil of 500 drawn by lot (prepares assembly and participates in government)\n\n\nThe random distribution of this office was an essential pillar of democracy:\nI judge my neighbour and he judges me.\n– Franziska Weise"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#kleroterion",
+    "href": "demarchy/demarchy.html#kleroterion",
+    "title": "Democracy without elections",
+    "section": "Kleroterion",
+    "text": "Kleroterion\n\n\n\n\n\n\n\n\n\n\n\nhttps://ysilly3es.wordpress.com/2021/10/25/kleroterion/\nhttps://www.dailymotion.com/video/x6comzz\nhttps://www.uni-hamburg.de/en/newsroom/forschung/2017-07-24-antike-losmaschine.html"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#kleroterion-usage",
+    "href": "demarchy/demarchy.html#kleroterion-usage",
+    "title": "Democracy without elections",
+    "section": "Kleroterion usage",
+    "text": "Kleroterion usage\nN rows and M columns of slots (e.g. N=50, M=5 (but also M=11))\n\nWooden cards with names are distributed randomly on the slots (Other description: one column per tribe/party/family)\nA number P of people to be elected is chosen\nN balls/dices are used for the selection\nP/M white balls/dices and N - P/M black balls/dices are mixed\nThe balls/dices fall in random order into a tube.\nIf a white ball falls out of the tube the top row is selected (the cards get removed and the owner gets called forward), if a black ball falls out of the tube top row is discarded (the cards get removed)\n\nThe first significant examination of Athenian allotment procedures was Headlam-Morley (1891): On Election by Lot at Athens"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#florence-1300---1500",
+    "href": "demarchy/demarchy.html#florence-1300---1500",
+    "title": "Democracy without elections",
+    "section": "Florence 1300 - 1500",
+    "text": "Florence 1300 - 1500\nGeneral mistrust against too powerful persons and groups\n\nOfficials are selected by lot each year among 2000 citizens recognised as suitable for office\nParticipation allowed only every 3 years\nConsecutive terms were forbidden\nEligibility was checked every five years (no tax debts, membership in guilds, …)\n\nThis method was also adopted in Orvieto, Siena, Pistoia, Perugia and Lucca\n\nThis lottery procedure “is more likely to promote good life, sound administration and government in the towns and cities than the orders which, conversely, are based on election. They are more united and equal, more peaceful and free from passions”.\n– King Ferdiand II"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#age-of-enlightenment",
+    "href": "demarchy/demarchy.html#age-of-enlightenment",
+    "title": "Democracy without elections",
+    "section": "Age of Enlightenment",
+    "text": "Age of Enlightenment\n\n“The suffrage by lot is natural to democracy; as that by choice is to aristocracy.” „Die Entscheidung durch das Los entspricht dem Wesen der Demokratie, die Entscheidung durch Wahl dem der Aristokratie.“\n–- Baron de Montesquieu: De l’esprit des loix (Vom Geist der Gesetze), 1748\n\nBut:\n\nWealthy enlightenment figures preferred to retain more power by holding election\nThey simply dislodged a hereditary aristocracy to replace it with an elected aristocracy\n\n\nFrench Revolution: Hereditary nobility replaced by elected nobility\nFrench Republic, not French Democracy!"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#optimal-sample-size",
+    "href": "demarchy/demarchy.html#optimal-sample-size",
+    "title": "Democracy without elections",
+    "section": "Optimal sample size",
+    "text": "Optimal sample size\n\nDemocracy is possible only if the decision-makers are a representative sample of the people concerned.\n– John Burnheim (1985): Is Democracy Possible?\n\n\nIf you have cooked a large pan of soup, you do not need to eat it all to find out if it needs more seasoning. You can just taste a spoonful, provided you have given it a good stir.\n– George Gallup\n\nHow many samples \\(n\\) from a total of \\(N\\) items do we need, so that our sample is representative?"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#sample-size-formula",
+    "href": "demarchy/demarchy.html#sample-size-formula",
+    "title": "Democracy without elections",
+    "section": "Sample size formula",
+    "text": "Sample size formula\nThe formula for computing the sample size \\(n\\) of a finite population \\(N\\) \\[\nn = \\frac{n_\\infty}{1 + \\frac{n_\\infty - 1}{N}}\n\\] where the sample size for an infinite population \\(n_\\infty\\) is given as \\[\nn_\\infty = \\frac{z^2 p(1-p)}{e^2}\n\\] with the the z-score \\(z\\) for a specific confidence level, the margin of error \\(e\\) of your sampling results and \\(p\\) being the proportion of the population picking a specific choice (\\(p=50%\\) generates maximal sample sizes)."
+  },
+  {
+    "objectID": "demarchy/demarchy.html#sample-size-formula-2",
+    "href": "demarchy/demarchy.html#sample-size-formula-2",
+    "title": "Democracy without elections",
+    "section": "Sample size formula 2",
+    "text": "Sample size formula 2"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#sample-sizes-table",
+    "href": "demarchy/demarchy.html#sample-sizes-table",
+    "title": "Democracy without elections",
+    "section": "Sample sizes table",
+    "text": "Sample sizes table\n\n\nhttps://www.research-advisors.com/tools/SampleSize.htm"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#sample-size-examples",
+    "href": "demarchy/demarchy.html#sample-size-examples",
+    "title": "Democracy without elections",
+    "section": "Sample size examples",
+    "text": "Sample size examples\nIf you want to be confident that in 95% of the decisions the parliament represents the will of the people within an error margin of 5%, the sample size formula suggest a parliament size of 384 people (for a population &gt; 1 million)\nIf the European Parliament with 751 seats would be selected by lot in 95% of the cases the will of the european people would be represented with a margin of error of about 3.5 %.\nFor a village with 1000 persons, we need 440 in the “Gemeinderat” for the same margin of error.\n=&gt; Sortition/Selection by lot is much more efficient for bigger population sizes"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#modern-examples",
+    "href": "demarchy/demarchy.html#modern-examples",
+    "title": "Democracy without elections",
+    "section": "Modern examples",
+    "text": "Modern examples\n\n\nCitizens’ Assembly on Electoral Reform (Canada, 2004)\n\n160 persons selected by lot (stratified)\nfollowed by referendum (failed)\n\nConstitutional reform (Iceland 2010- 2013)\n\n1000 persons selected by lot\n25 elected from 1000 to create new constitution\nfollowed by referendum (result not accepted by parliament)\n\n\nConvention on Constitution (Ireland 2013)\n\n66 persons selected by lot ((stratified) + 33 politicians\nfollowed by referendum (successful)\n\nBürgerrat (Germany 2019 - )\n\n160 persons selected by lot (stratified)\nOnly recommendations\n\nJury trials (USA and many others…)"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#advantages",
+    "href": "demarchy/demarchy.html#advantages",
+    "title": "Democracy without elections",
+    "section": "Advantages",
+    "text": "Advantages\n\nneutral, fair, representative (secured by statistics, not by quotas)\ncheap, no expensive campaigns necessary\ndifficult to manipulate\nno professional politicians, no long-term corruption"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#disadvantages",
+    "href": "demarchy/demarchy.html#disadvantages",
+    "title": "Democracy without elections",
+    "section": "Disadvantages",
+    "text": "Disadvantages\n\nExpert burocrats might have a lot of power and manipulate layman politician\nlaymen politician might use their short time in power to get rich as fast as possible\n\nLobbyists might have it even easier with laymen\n\nno longterm planning and stability, because probability of same person again selected is only (80 Million/800 = 1/100000)"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#mixed-electionsortition-models",
+    "href": "demarchy/demarchy.html#mixed-electionsortition-models",
+    "title": "Democracy without elections",
+    "section": "Mixed election/sortition models",
+    "text": "Mixed election/sortition models\n\nOne chamber elected, one chamber selected by lot\nProportion of non-voters represented by people selected by lot\npolitical conscription -&gt; If you are selected you have to serve (like military conscription)"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#references",
+    "href": "demarchy/demarchy.html#references",
+    "title": "Democracy without elections",
+    "section": "References",
+    "text": "References\n\n\n\nBooks\n\nReybrouck (2016): Against Elections - The Case for Democracy\nWeyn (2007): Die letzte Wahl\n\n\n\nLinks\n\nPluchino (2011): Accidental Politicians\nWhy random selection of MPs may be best\nWikipedia: Demarchie\nWikipedia: Sortition\nbpb: Grundzüge der attischen Demokratie\nhttps://www.omnicalculator.com/statistics/sample-size\nhttps://towardsdatascience.com/optimal-sample-size-determination-43c5dca1f720\nhttps://stats.stackexchange.com/questions/192199/derivation-of-formula-for-sample-size-of-finite-population/192601#192601\nhttps://politics.stackexchange.com/questions/364/is-there-an-optimal-size-of-a-parliament"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#section",
+    "href": "demarchy/demarchy.html#section",
+    "title": "Democracy without elections",
+    "section": "",
+    "text": "Thank you"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#contact-me",
+    "href": "demarchy/demarchy.html#contact-me",
+    "title": "Democracy without elections",
+    "section": "Contact me",
+    "text": "Contact me\n\nDr. Andreas Maier\nSenior Data Scientist\nandreas.maier@um-orange.com"
+  },
+  {
+    "objectID": "demarchy/demarchy.html#orange-business",
+    "href": "demarchy/demarchy.html#orange-business",
+    "title": "Democracy without elections",
+    "section": "Orange Business",
+    "text": "Orange Business"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "date\ntitle\npreview\n\n\n\n\n2023-10-05\nDemocracy without Elections\n\n\n\n2022-07-21\nTime Series Prediction Part I\n\n\n\n2022-06-30\nQuarto - A successor to LaTeX?\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n\n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
+  },
+  {
+    "objectID": "python_type_hints/index.html#overview",
+    "href": "python_type_hints/index.html#overview",
+    "title": "Python Type Hints",
+    "section": "Overview",
+    "text": "Overview\n\nType after variable\nProblem: IDE cannot suggest variable name based on type"
+  },
+  {
+    "objectID": "python_type_hints/index.html#primitives",
+    "href": "python_type_hints/index.html#primitives",
+    "title": "Python Type Hints",
+    "section": "Primitives",
+    "text": "Primitives\nFrom\n// primitive function\ndef uga_uga(text):\nto\ndef uga_uga(text: str) -&gt; int:\n\"\"\"\nVery primitive AI.\n:param text: Input text\n:return: Number parsed by primitive AI\n\"\"\""
+  },
+  {
+    "objectID": "python_type_hints/index.html#not-so-primitives",
+    "href": "python_type_hints/index.html#not-so-primitives",
+    "title": "Python Type Hints",
+    "section": "Not so primitives",
+    "text": "Not so primitives\nTuples, Dicts, etc…\nfrom typing import Tuple\n\ndef returns_tuple(input: str) -&gt; Tuple[str, str]:\nVoid method\ndef i_have_side_effects(path: str) -&gt; None:\nComplex types\nimport pyspark\nfrom pyspark.sql.column import Column\n\ndef do_stuff(sc: pyspark.SparkContext, path: str) -&gt; Column:"
+  },
+  {
+    "objectID": "python_type_hints/index.html#default-value",
+    "href": "python_type_hints/index.html#default-value",
+    "title": "Python Type Hints",
+    "section": "Default value",
+    "text": "Default value\n\nConfusing syntax at first\n\nFrom\ndef dirty_function(cleanup=True):\nto\ndef dirty_function(cleanup: bool=True) -&gt; Something:\nThe value of cleanup is True not the value of bool! Another disadvantage of types after variable name."
+  },
+  {
+    "objectID": "python_type_hints/index.html#conclusion-1",
+    "href": "python_type_hints/index.html#conclusion-1",
+    "title": "Python Type Hints",
+    "section": "Conclusion 1",
+    "text": "Conclusion 1\n\nCool for final documentation\nOnly type hints, but no accessibility and changeability (const vs. variable): This is not a complete compiler!\nHow to express contracts like\n\nThis function doesn’t accept None\nThis function does never return None\nThis function can throw exception ABC and DEF.\ndef convert(year, month, day) with year &gt; 1970, 1 &lt; month &lt; 12, and day = 31, 30, 29 or 28 ?\nDon’t program your rocket’s software in Python, use ADA!"
+  },
+  {
+    "objectID": "python_type_hints/index.html#conclusion-2",
+    "href": "python_type_hints/index.html#conclusion-2",
+    "title": "Python Type Hints",
+    "section": "Conclusion 2",
+    "text": "Conclusion 2\n\nwouldn’t C/Java style be better?\n\ndef Tuple[str, str] returns_tuple(str:input = \"default\") :\n\nEven with a wrong type hint your code can still run.\n\nHow to maintain type hints, when refactoring the code?\nRegularly run static code analysis to detect inconsistencies: like a compiler!"
+  },
+  {
+    "objectID": "python_type_hints/index.html#end",
+    "href": "python_type_hints/index.html#end",
+    "title": "Python Type Hints",
+    "section": "End",
+    "text": "End\nOriginal presentation on github gist:\n\nPython Type Hints"
+  },
+  {
     "objectID": "timeseries/timeseries.html#time-series",
     "href": "timeseries/timeseries.html#time-series",
     "title": "Time Series Prediction Part I",
@@ -172,7 +501,7 @@
     "href": "timeseries/timeseries.html#box-jenkins-method",
     "title": "Time Series Prediction Part I",
     "section": "Box-Jenkins Method",
-    "text": "Box-Jenkins Method\n\nMake the time series stationary (e.g. standardization, differencing \\(d\\)-times, …)\nUse ACF plot and PACF plot to identify the parameter \\(p\\) and \\(q\\)\nFitting the parameters of the ARIMA(p,d,q) model. This can be done with Hannan–Rissanen (1982) algorithm\n\nAR(m) model (with \\(m > max(p, q)\\)) is fitted to the data\nCompute error terms for all \\(t\\): \\(\\epsilon_t\\) = \\(y_t - \\hat{y}_t\\)\nRegress \\(y_t\\) on \\(y^{(d)}_{t-1},..,y^{(d)}_{t-p},\\epsilon_{t-1},...,\\epsilon_{t-q}\\)\nTo improve accurancy optinally regress again with updated \\(\\phi,\\theta\\) from step 3\n\nOther algorithms (maximizing likelihood) are often used in practice 7 8\nStatistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)\nOnce the residuals look like white noise, do the forecast\n\nNowadays all these steps are automated by tools like AutoARIMA etc."
+    "text": "Box-Jenkins Method\n\nMake the time series stationary (e.g. standardization, differencing \\(d\\)-times, …)\nUse ACF plot and PACF plot to identify the parameter \\(p\\) and \\(q\\)\nFitting the parameters of the ARIMA(p,d,q) model. This can be done with Hannan–Rissanen (1982) algorithm\n\nAR(m) model (with \\(m &gt; max(p, q)\\)) is fitted to the data\nCompute error terms for all \\(t\\): \\(\\epsilon_t\\) = \\(y_t - \\hat{y}_t\\)\nRegress \\(y_t\\) on \\(y^{(d)}_{t-1},..,y^{(d)}_{t-p},\\epsilon_{t-1},...,\\epsilon_{t-q}\\)\nTo improve accurancy optinally regress again with updated \\(\\phi,\\theta\\) from step 3\n\nOther algorithms (maximizing likelihood) are often used in practice 7 8\nStatistical model checking (analysis of mean, variance, (partial) autocorrelation, Ljung–Box test of residuals)\nOnce the residuals look like white noise, do the forecast\n\nNowadays all these steps are automated by tools like AutoARIMA etc."
   },
   {
     "objectID": "timeseries/timeseries.html#why",
@@ -182,136 +511,10 @@
     "text": "Why???\n\nWhy combine AR and MA ?\n\nWold’s theorem ?\n\nAR is analogeous to linear regression, but what is MA analogeous to outside of time series analysis?\nWhy is ARIMA better than AR alone?\n\n\n\n\n\nhttps://www.unbelievable-machine.com/"
   },
   {
-    "objectID": "timeseries/random_walk.html",
-    "href": "timeseries/random_walk.html",
-    "title": "presentations",
-    "section": "",
-    "text": "import random\nimport itertools\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\nfrom scipy import stats\nimport seaborn as sns\n\n\nrandom.seed(1789)\nN=10000\n\n\nx = range(N)\nseries = [random.randrange(-1,2) for i in range(N)]\n\n\nsns.lineplot(x=x, y=series);\n\n\n\n\n\n# very inefficient creation of a random walk, don't use for N>100000\n# %timeit walk = [sum(series[:i+1]) for i in range(N)]\n\n\n# much faster, see https://stackoverflow.com/questions/15889131/how-to-find-the-cumulative-sum-of-numbers-in-a-list\n# %timeit walk = list(itertools.accumulate(series))\n\n\nwalk = list(itertools.accumulate(series))\n\n\nsns.lineplot(x=x, y=walk)\n\n<AxesSubplot:>\n\n\n\n\n\n\nwalk_of_walk = list(itertools.accumulate(walk))\n\n\nsns.lineplot(x=x, y=walk_of_walk)\n\n<AxesSubplot:>\n\n\n\n\n\n\nwalk_of_walk_of_walk = list(itertools.accumulate(walk_of_walk))\n\n\nsns.lineplot(x=x, y=walk_of_walk_of_walk)\n\n<AxesSubplot:>\n\n\n\n\n\n\nstats.zscore(walk).mean(), stats.zscore(walk).std()\n\n(-4.5474735088646414e-17, 0.9999999999999999)\n\n\n\nsns.lineplot(x=x, y=stats.zscore(walk));\n\n\n\n\n\nfig, (ax1, ax2, ax3, ax4) = plt.subplots(1,4, figsize=(24, 6))\n\nfor shift, axis in [(5,ax1),(50,ax2),(500,ax3),(5000,ax4)]:\n    \n    X = stats.zscore(walk[:-shift])\n    Y = stats.zscore(walk[shift:])\n    \n    R = stats.pearsonr(X,Y)[0]\n    \n    axis.set_title(f\"Pearson coef.: {R:.2f}\")\n    axis.set_xlabel(f\"z(t + {shift})\")\n    axis.set_ylabel(f\"z(t)\")\n    \n    sns.scatterplot(x=Y,y=X, s=10, ax=axis, alpha=0.1, );\n\n\n\n\n\nimport darts\nfrom darts.utils.statistics import plot_acf, plot_pacf, check_seasonality\n\n\nds_walk = pd.Series(walk)\nts_walk = darts.TimeSeries.from_series(ds_walk)\n\n\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\nfig.tight_layout()\nts_walk.plot(ax=ax1)\nax1.set_title(\"\")\nax2.set_xlabel(\"lag\")\nplot_acf(ts_walk, max_lag=9000, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nds_walk_walk = pd.Series(walk_of_walk)\nts_walk_walk =darts.TimeSeries.from_series(ds_walk_walk)\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\nts_walk_walk.plot(ax=ax1)\nplot_acf(ts_walk_walk, max_lag=9000, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(2,1, figsize=(16, 8))\n\nwalk_diff = ts_walk[:1000].diff()\nwalk_diff.plot(ax=ax1)\nax1.set_title(\"\")\nax2.set_xlabel(\"lag\")\nfig.tight_layout()\nplot_acf(walk_diff, axis=ax2)\n\nNo artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.\n\n\n\n\n\n\nplot_pacf(ts_walk)"
-  },
-  {
-    "objectID": "python_type_hints/index.html#overview",
-    "href": "python_type_hints/index.html#overview",
-    "title": "Python Type Hints",
-    "section": "Overview",
-    "text": "Overview\n\nType after variable\nProblem: IDE cannot suggest variable name based on type"
-  },
-  {
-    "objectID": "python_type_hints/index.html#primitives",
-    "href": "python_type_hints/index.html#primitives",
-    "title": "Python Type Hints",
-    "section": "Primitives",
-    "text": "Primitives\nFrom\n// primitive function\ndef uga_uga(text):\nto\ndef uga_uga(text: str) -> int:\n\"\"\"\nVery primitive AI.\n:param text: Input text\n:return: Number parsed by primitive AI\n\"\"\""
-  },
-  {
-    "objectID": "python_type_hints/index.html#not-so-primitives",
-    "href": "python_type_hints/index.html#not-so-primitives",
-    "title": "Python Type Hints",
-    "section": "Not so primitives",
-    "text": "Not so primitives\nTuples, Dicts, etc…\nfrom typing import Tuple\n\ndef returns_tuple(input: str) -> Tuple[str, str]:\nVoid method\ndef i_have_side_effects(path: str) -> None:\nComplex types\nimport pyspark\nfrom pyspark.sql.column import Column\n\ndef do_stuff(sc: pyspark.SparkContext, path: str) -> Column:"
-  },
-  {
-    "objectID": "python_type_hints/index.html#default-value",
-    "href": "python_type_hints/index.html#default-value",
-    "title": "Python Type Hints",
-    "section": "Default value",
-    "text": "Default value\n\nConfusing syntax at first\n\nFrom\ndef dirty_function(cleanup=True):\nto\ndef dirty_function(cleanup: bool=True) -> Something:\nThe value of cleanup is True not the value of bool! Another disadvantage of types after variable name."
-  },
-  {
-    "objectID": "python_type_hints/index.html#conclusion-1",
-    "href": "python_type_hints/index.html#conclusion-1",
-    "title": "Python Type Hints",
-    "section": "Conclusion 1",
-    "text": "Conclusion 1\n\nCool for final documentation\nOnly type hints, but no accessibility and changeability (const vs. variable): This is not a complete compiler!\nHow to express contracts like\n\nThis function doesn’t accept None\nThis function does never return None\nThis function can throw exception ABC and DEF.\ndef convert(year, month, day) with year > 1970, 1 < month < 12, and day = 31, 30, 29 or 28 ?\nDon’t program your rocket’s software in Python, use ADA!"
-  },
-  {
-    "objectID": "python_type_hints/index.html#conclusion-2",
-    "href": "python_type_hints/index.html#conclusion-2",
-    "title": "Python Type Hints",
-    "section": "Conclusion 2",
-    "text": "Conclusion 2\n\nwouldn’t C/Java style be better?\n\ndef Tuple[str, str] returns_tuple(str:input = \"default\") :\n\nEven with a wrong type hint your code can still run.\n\nHow to maintain type hints, when refactoring the code?\nRegularly run static code analysis to detect inconsistencies: like a compiler!"
-  },
-  {
-    "objectID": "python_type_hints/index.html#end",
-    "href": "python_type_hints/index.html#end",
-    "title": "Python Type Hints",
-    "section": "End",
-    "text": "End\nOriginal presentation on github gist:\n\nPython Type Hints"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "date\ntitle\npreview\n\n\n\n\n2022-07-21\nTime Series Prediction Part I\n\n\n\n2022-06-30\nQuarto - A successor to LaTeX?\n\n\n\n2021-10-06\nDataframes - Why data scientists don’t use SQL\n\n\n\n2020-11-18\nStreamlit.io - A first look\n\n\n\n2019-03-12\nTest Driven Development für Datenwissenschaftler\n\n\n\n2018-12-19\nContinuous Delivery für Datenwissenschaftler\n\n\n\n2018-01-16\nPython Type Hints\n\n\n\n2017-10-17\nInvestigate political landscape (using Wahl-O-Mat data)\n\n\n\n2015-08-29\nWir sind Bild!\n\n\n\n2015-04-09\nKanban vs. Scrum\n\n\n\n2015-04-09\nWas ist Kanban"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "quarto/quarto.html#overview",
-    "href": "quarto/quarto.html#overview",
-    "title": "Quarto",
-    "section": "Overview",
-    "text": "Overview\nQuarto® is an open-source scientific and technical publishing system built on Pandoc.\n\nAuthor with pandoc markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.\nPublish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF , MS Word, Powerpoint, ePub, and more.\nSupport for interactive documents (Jupyter, Shiny, Observable)\nQuarto is the successor to Bookdown/Blogdown"
-  },
-  {
-    "objectID": "quarto/quarto.html#advantages-over-latex",
-    "href": "quarto/quarto.html#advantages-over-latex",
-    "title": "Quarto",
-    "section": "Advantages over LaTeX",
-    "text": "Advantages over LaTeX\n\n\n\nCreate dynamic content with Python, R, Julia, and Observable.\nInteractive widgets (Shiny, Jupyter widgets, Observable JS)\nSupport for many more output formats and even whole websites and blogs"
-  },
-  {
-    "objectID": "quarto/quarto.html#disadvantages-over-latex",
-    "href": "quarto/quarto.html#disadvantages-over-latex",
-    "title": "Quarto",
-    "section": "Disadvantages over LaTeX",
-    "text": "Disadvantages over LaTeX\n\n\n\nPandoc markdown is not a (Turing-) complete programming language\nLaTeX is “the specialist” for print output\nLaTeX is established since 40 years"
-  },
-  {
-    "objectID": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
-    "href": "quarto/quarto.html#disadvantages-over-wordpowerpointkeynote",
-    "title": "Quarto",
-    "section": "Disadvantages over Word/Powerpoint/Keynote",
-    "text": "Disadvantages over Word/Powerpoint/Keynote\n\n\n\nNo realtime layout changes (fonts, colors, etc.)\nNo realtime positioning of images\nNo advanced animations\nLess advanced spell/grammer checker\nSlower creation of image-heavy documents"
-  },
-  {
-    "objectID": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
-    "href": "quarto/quarto.html#advantages-over-wordpowerpointkeynote",
-    "title": "Quarto",
-    "section": "Advantages over Word/Powerpoint/Keynote",
-    "text": "Advantages over Word/Powerpoint/Keynote\n\n\n\nFree, no vendor lock-in\nDiffable, gitable, reproducible\nLaTeX equations, code highlighting\nMuch better HTML output\nFaster creation of text-heavy documents"
-  },
-  {
-    "objectID": "quarto/quarto.html#advantages-over-bookblogdown",
-    "href": "quarto/quarto.html#advantages-over-bookblogdown",
-    "title": "Quarto",
-    "section": "Advantages over Book/Blogdown",
-    "text": "Advantages over Book/Blogdown\n\n\n\nMore themes/layouts\nMany more output options (e.g. presentations)\nNo dependency on R/RStudio and Hugo\nOne tool for everything and better integration with pandoc\nOpen source licence GPL v2"
-  },
-  {
-    "objectID": "quarto/quarto.html#section",
-    "href": "quarto/quarto.html#section",
-    "title": "Quarto",
-    "section": "",
-    "text": "Quarto Gallery\nLive demo\n\n\n\nShow example HTML and PDF with advanced layout"
-  },
-  {
-    "objectID": "quarto/quarto.html#summary",
-    "href": "quarto/quarto.html#summary",
-    "title": "Quarto",
-    "section": "Summary",
-    "text": "Summary\n\nQuarto can\n\nautogenerate plots and widgets from embedded code snippets\ncross referencing (also between different websites)\nfootnotes, sidenotes\nbibliography\nappendix\nDOI, Google Scholar\n…\n\nQuarto can create HTML, Word, Powerpoint, ePub, Wikis, RTF, Jupyter, InDesign, Websites, Blogs, Books…\n\nQuarto is not a successor of \\(\\text{\\LaTeX}\\)\nQuarto is a \\(\\text{\\LaTeX}\\) generator"
-  },
-  {
-    "objectID": "quarto/quarto.html#section-1",
-    "href": "quarto/quarto.html#section-1",
-    "title": "Quarto",
-    "section": "",
-    "text": "The End\n\n\n\n\n\nhttps://www.unbelievable-machine.com/"
+    "objectID": "timeseries/timeseries.html#footnotes",
+    "href": "timeseries/timeseries.html#footnotes",
+    "title": "Time Series Prediction Part I",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nRaschka: What is the difference between Pearson R and Simple Linear Regression?\nHyndman (2021): Forecasting: principles and practice, chapter 9.1\nPalachy (2019): Towards Data Science | Stationarity in time series analysis\nPen State: STAT 510 | Applied Time Series Analysis, chapter 2.2\nStackexchange: why-are-maq-time-series-models-called-moving-averages\nWikipedia: Autoregressive_model\nBrockwell, Davis (2016) Introduction to Time Series and Forecasting, chapter 5\nHyndman (2008). Automatic Time Series Forecasting: The forecast Package for R"
   }
 ]

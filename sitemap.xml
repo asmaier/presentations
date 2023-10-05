@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asmaier.github.io/presentations/wahl-o-mat-data/index.html</loc>
-    <lastmod>2022-11-15T21:47:47.338Z</lastmod>
-  </url>
-  <url>
-    <loc>https://asmaier.github.io/presentations/timeseries/timeseries.html</loc>
-    <lastmod>2022-11-15T21:47:48.718Z</lastmod>
-  </url>
-  <url>
-    <loc>https://asmaier.github.io/presentations/timeseries/random_walk.html</loc>
-    <lastmod>2022-11-15T21:47:57.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://asmaier.github.io/presentations/python_type_hints/index.html</loc>
-    <lastmod>2022-11-15T21:47:57.450Z</lastmod>
-  </url>
-  <url>
-    <loc>https://asmaier.github.io/presentations/index.html</loc>
-    <lastmod>2022-11-15T21:47:58.041Z</lastmod>
-  </url>
-  <url>
-    <loc>https://asmaier.github.io/presentations/about.html</loc>
-    <lastmod>2022-11-15T21:47:58.362Z</lastmod>
+    <lastmod>2023-10-05T16:51:47.365Z</lastmod>
   </url>
   <url>
     <loc>https://asmaier.github.io/presentations/quarto/quarto.html</loc>
-    <lastmod>2022-11-15T21:47:58.742Z</lastmod>
+    <lastmod>2023-10-05T16:51:42.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/operations_research/orintro_report_pandoc.html</loc>
+    <lastmod>2023-10-05T16:51:41.805Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/demarchy/demarchy.html</loc>
+    <lastmod>2023-10-05T16:51:40.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/about.html</loc>
+    <lastmod>2023-10-05T16:51:38.407Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/index.html</loc>
+    <lastmod>2023-10-05T16:51:40.426Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/python_type_hints/index.html</loc>
+    <lastmod>2023-10-05T16:51:42.103Z</lastmod>
+  </url>
+  <url>
+    <loc>https://asmaier.github.io/presentations/timeseries/timeseries.html</loc>
+    <lastmod>2023-10-05T16:51:47.113Z</lastmod>
   </url>
 </urlset>
