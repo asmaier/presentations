@@ -1,0 +1,887 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+\usepackage{caption}
+% Make caption package work with longtable
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Introduction to Operations Research},
+  pdfauthor={Dr.~Andreas Maier},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Introduction to Operations Research}
+\author{Dr.~Andreas Maier}
+\date{10/31/22}
+
+\begin{document}
+\frame{\titlepage}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, enhanced, frame hidden, sharp corners, breakable, interior hidden]}{\end{tcolorbox}}\fi
+
+\begin{frame}{Introduction to Operations Research}
+\protect\hypertarget{introduction-to-operations-research}{}
+OR (in german ``Operationsforschung'' oder ``Unternehmensplanung'')
+
+\begin{itemize}
+\tightlist
+\item
+  using analytical methods to improve decision making\\
+\item
+  strives to maximize profit or minimize loss
+\item
+  \href{https://en.wikipedia.org/wiki/Mathematical_optimization}{optimization}
+  of \href{https://en.wikipedia.org/wiki/Convex_optimization}{convex
+  objectives} with convex constraints (single global optimum)
+\item
+  integer, continuous, mixed solutions
+\end{itemize}
+
+\begin{block}{History}
+\protect\hypertarget{history}{}
+\begin{itemize}
+\tightlist
+\item
+  1939 Leonid Kantorowitch (USSR) : The Mathematical Method of
+  Production Planning and Organization =\textgreater{} Linear
+  Programming (LP)
+\item
+  \href{https://en.wikipedia.org/wiki/Operations_research\#Second_World_War}{WW2:
+  First use of OR in the West}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    optimal placement of radar stations in UK
+  \item
+    optimal convoy size against german submarine attacks
+  \item
+    optimization of allied air raids
+  \end{itemize}
+\item
+  1947 Georg Dantzig (USA):
+  \href{https://en.wikipedia.org/wiki/Simplex_algorithm}{Simplex
+  algorithm} for LP\\
+\item
+  1960s Land and Doig (British Petroleum):
+  \href{https://en.wikipedia.org/wiki/Branch_and_bound}{Branch and
+  Bound} meta algorithm
+\end{itemize}
+\end{block}
+
+\begin{block}{Examples: Stigler diet}
+\protect\hypertarget{examples-stigler-diet}{}
+Which quantities a 70kg male would have to consume from 77 different
+foods to
+
+\begin{itemize}
+\tightlist
+\item
+  fulfill the recommended intake of 9 different nutrients in 1943
+\item
+  keeping expense at a minimum (prices from 1939)
+\end{itemize}
+
+LP solved by trial and error (before Simplex) by Stigler in 1945.
+
+See
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://en.wikipedia.org/wiki/Stigler_diet}
+\item
+  \url{https://www.kaggle.com/code/nicapotato/optimisation-101-with-or-tools/notebook}
+\end{itemize}
+\end{block}
+
+\begin{block}{Examples: Stigler diet 2}
+\protect\hypertarget{examples-stigler-diet-2}{}
+Later Dantzig
+
+\begin{itemize}
+\tightlist
+\item
+  improved Stiglers solution with Simplex algorithm
+\item
+  tried to find the optimal diet to loose weight with Simplex on a
+  computer.
+\end{itemize}
+
+He failed (because he didn't include upper limit constraints)
+
+\begin{itemize}
+\tightlist
+\item
+  Computer recommended ridiculous amounts of apple cider, bran, boullion
+  cubes
+\item
+  His wifes diet for him was superior and he lost 11 kg
+\end{itemize}
+
+See
+
+\begin{itemize}
+\tightlist
+\item
+  Dantzig (1990): The Diet Problem
+\end{itemize}
+\end{block}
+
+\begin{block}{Examples: Optimizing the USSR}
+\protect\hypertarget{examples-optimizing-the-ussr}{}
+1950s - 1970s : Kantorowitch et. al.~try to use OR/LP to optimize
+central planning in USSR
+
+But failure due to
+
+\begin{itemize}
+\tightlist
+\item
+  Too many variables - too little compute power at that time
+\item
+  Non-linearities
+\item
+  How to choose a correct function to optimize for society an for
+  innovations?
+\item
+  Data quality (directors lied about capacities of factories)
+\end{itemize}
+
+See
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://chris-said.io/2016/05/11/optimizing-things-in-the-ussr/}
+\item
+  Spufford (2012): Red Plenty
+\end{itemize}
+\end{block}
+
+\begin{block}{Tooling: Commercial only?}
+\protect\hypertarget{tooling-commercial-only}{}
+\begin{itemize}
+\tightlist
+\item
+  OR is much older field than ML/AI
+\item
+  rooted in (secret) military research or patented by oil companies
+\item
+  driven by math proofs not by code
+\item
+  mathematicians cannot code
+\end{itemize}
+
+Examples:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.fico.com/en/products/fico-xpress-optimization}{FICO
+  Express},
+  \href{https://www.ibm.com/products/ilog-cplex-optimization-studio}{IBM
+  CPLEX}, \href{https://www.mosek.com/}{MOSEK},
+  \href{https://www.gurobi.com/}{GUROBI},
+  \href{https://www.localsolver.com/}{LocalSolver}
+\item
+  MATLAB, Mathematica
+\end{itemize}
+
+See
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://or.stackexchange.com/questions/61/why-is-the-programming-code-of-many-algorithms-not-public-in-the-or-community}{Why
+  is the programming code of many algorithms not public in the OR
+  community?}
+\end{itemize}
+\end{block}
+
+\begin{block}{Tooling: Open and free solvers}
+\protect\hypertarget{tooling-open-and-free-solvers}{}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.optaplanner.org/}{OptaPlanner} (Java)
+\item
+  \href{https://www.coin-or.org/}{COIN-OR} (C/C++)
+\item
+  \href{https://www.scipopt.org/}{SCIP} (C/C++, wrappers for Python,
+  Julia, Java, \ldots), Zuse Institute Berlin, FU Dahlem
+\item
+  \href{https://docs.scipy.org/doc/scipy/reference/optimize.html}{scipy.optimize}
+  (Python)
+\item
+  \href{https://developers.google.com/optimization}{Google OR-Tools}
+  (Python, C++, Java, C\#)
+\end{itemize}
+
+See
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://or.stackexchange.com/questions/841/list-of-implementations-for-common-or-problems}{List
+  of implementations for common OR problems}
+\end{itemize}
+\end{block}
+
+\begin{block}{Google OR-Tools}
+\protect\hypertarget{google-or-tools}{}
+\begin{itemize}
+\tightlist
+\item
+  Open source software for combinatorial optimization
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Vehicle routing, Bin packing, Scheduling
+  \item
+    Graph algorithm
+  \item
+    Linear and Mixed-Integer programming
+  \end{itemize}
+\item
+  OR-Tools uses SOTA algorithms to narrow down vast number of possible
+  solutions to optimal solution
+\item
+  Wrapper around SCIP, GUROBI, CPLEX, XPRESS
+\end{itemize}
+\end{block}
+
+\begin{block}{Introduction LP with OR-Tools}
+\protect\hypertarget{introduction-lp-with-or-tools}{}
+Maximize \(3x + y\) subject to the following constraints: \[
+0 \leq x \leq 1 \\
+0 \leq y \leq 2 \\
+x + y \leq 2
+\]
+
+This is a LP problem with continuous variables.
+
+see
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://developers.google.com/optimization/introduction/python}
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ ortools.linear\_solver }\ImportTok{import}\NormalTok{ pywraplp}
+\ImportTok{from}\NormalTok{ ortools.init }\ImportTok{import}\NormalTok{ pywrapinit}
+
+\CommentTok{\# Create the linear solver with the GLOP (the Google Linear Optimization Package) backend (advanced simplex)}
+\CommentTok{\# see https://en.wikipedia.org/wiki/GLOP}
+\NormalTok{solver }\OperatorTok{=}\NormalTok{ pywraplp.Solver.CreateSolver(}\StringTok{\textquotesingle{}GLOP\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the variables x and y and their bounds.}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ solver.NumVar(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{\textquotesingle{}x\textquotesingle{}}\NormalTok{)   }\CommentTok{\# bound 0 \textless{}= x \textless{}= 1}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ solver.NumVar(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\StringTok{\textquotesingle{}y\textquotesingle{}}\NormalTok{)   }\CommentTok{\# bound 0 \textless{}= y \textless{}= 2}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Number of variables =\textquotesingle{}}\NormalTok{, solver.NumVariables())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Number of variables = 2
+\end{verbatim}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a linear constraint, 0 \textless{}= x + y \textless{}= 2.}
+\NormalTok{ct }\OperatorTok{=}\NormalTok{ solver.Constraint(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\StringTok{\textquotesingle{}ct\textquotesingle{}}\NormalTok{)}
+\NormalTok{ct.SetCoefficient(x, }\DecValTok{1}\NormalTok{)}
+\NormalTok{ct.SetCoefficient(y, }\DecValTok{1}\NormalTok{)}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Number of constraints =\textquotesingle{}}\NormalTok{, solver.NumConstraints())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Number of constraints = 1
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the objective function, 3 * x + y.}
+\NormalTok{objective }\OperatorTok{=}\NormalTok{ solver.Objective()}
+\NormalTok{objective.SetCoefficient(x, }\DecValTok{3}\NormalTok{)}
+\NormalTok{objective.SetCoefficient(y, }\DecValTok{1}\NormalTok{)}
+\NormalTok{objective.SetMaximization()}
+\end{Highlighting}
+\end{Shaded}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{solver.Solve()}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Solution:\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Objective value =\textquotesingle{}}\NormalTok{, objective.Value())}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}x =\textquotesingle{}}\NormalTok{, x.solution\_value())}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}y =\textquotesingle{}}\NormalTok{, y.solution\_value())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Solution:
+Objective value = 4.0
+x = 1.0
+y = 1.0
+\end{verbatim}
+\end{frame}
+
+\begin{frame}{Stiglers diet with OR-Tools}
+\protect\hypertarget{stiglers-diet-with-or-tools}{}
+Minimize the sum of money in dollar spent on food \(f_i\) for
+\(i=1..77\) \[
+min \sum_i f_i 
+\] The contraints are that the sum of all nutrients in the purchased
+food \(i\) must be bigger than the minimum for each nutrient \(n_j\) for
+\(j=1..9\). \[
+\sum_i f_i * \text{nutrient_per_dollar}_{ij} \geq n_j
+\] So we have a LP problem with 77 variables and 9 constraints.
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Calories are set to 3 instead of 3000, because in the table from 1939 Stigler gave the data in 1000s of Calories }
+\CommentTok{\# (see https://math.berkeley.edu/\textasciitilde{}mgu/MA170F2015/Diet.pdf)}
+\CommentTok{\# The notion of \textasciigrave{}kcal\textasciigrave{} () taken from the Google example) seems wrong here. 1 Calorie refers to 1000 kcal, not 1 kcal.}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Nutritional Contraints Table"}\NormalTok{)}
+\NormalTok{display(pd.DataFrame(nutrients, columns }\OperatorTok{=}\NormalTok{ [}\StringTok{\textquotesingle{}Nutrient\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}Daily Recommended Intake\textquotesingle{}}\NormalTok{]).set\_index(}\StringTok{\textquotesingle{}Nutrient\textquotesingle{}}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Nutritional Contraints Table
+\end{verbatim}
+
+\begin{tabular}{lr}
+\toprule
+{} &  Daily Recommended Intake \\
+Nutrient        &                           \\
+\midrule
+Calories (kcal) &                       3.0 \\
+Protein (g)     &                      70.0 \\
+Calcium (g)     &                       0.8 \\
+Iron (mg)       &                      12.0 \\
+Vitamin A (KIU) &                       5.0 \\
+Vitamin B1 (mg) &                       1.8 \\
+Vitamin B2 (mg) &                       2.7 \\
+Niacin (mg)     &                      18.0 \\
+Vitamin C (mg)  &                      75.0 \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Food Nutrition Table"}\NormalTok{)}
+\NormalTok{display(pd.DataFrame(data,columns }\OperatorTok{=}\NormalTok{ [}\StringTok{"Commodity"}\NormalTok{,}\StringTok{"Unit"}\NormalTok{,}\StringTok{"1939 price (cents)"}\NormalTok{,}\StringTok{"Calories"}\NormalTok{,}\StringTok{"Protein (g)"}\NormalTok{,}\StringTok{"Calcium (g)"}\NormalTok{,}\StringTok{"Iron (mg)"}\NormalTok{,}\StringTok{"Vitamin A (IU)"}\NormalTok{,}\StringTok{"Thiamine (mg)"}\NormalTok{,}\StringTok{"Riboflavin (mg)"}\NormalTok{,}\StringTok{"Niacin (mg)"}\NormalTok{,}\StringTok{"Ascorbic Acid (mg)"}\NormalTok{]).set\_index(}\StringTok{"Commodity"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Food Nutrition Table
+\end{verbatim}
+
+\begin{tabular}{llrrrrrrrrrr}
+\toprule
+{} &        Unit &  1939 price (cents) &  Calories &  Protein (g) &  Calcium (g) &  Iron (mg) &  Vitamin A (IU) &  Thiamine (mg) &  Riboflavin (mg) &  Niacin (mg) &  Ascorbic Acid (mg) \\
+Commodity               &             &                     &           &              &              &            &                 &                &                  &              &                     \\
+\midrule
+Wheat Flour (Enriched)  &      10 lb. &                36.0 &      44.7 &         1411 &          2.0 &        365 &             0.0 &           55.4 &             33.3 &          441 &                   0 \\
+Macaroni                &       1 lb. &                14.1 &      11.6 &          418 &          0.7 &         54 &             0.0 &            3.2 &              1.9 &           68 &                   0 \\
+Wheat Cereal (Enriched) &      28 oz. &                24.2 &      11.8 &          377 &         14.4 &        175 &             0.0 &           14.4 &              8.8 &          114 &                   0 \\
+Corn Flakes             &       8 oz. &                 7.1 &      11.4 &          252 &          0.1 &         56 &             0.0 &           13.5 &              2.3 &           68 &                   0 \\
+Corn Meal               &       1 lb. &                 4.6 &      36.0 &          897 &          1.7 &         99 &            30.9 &           17.4 &              7.9 &          106 &                   0 \\
+Hominy Grits            &      24 oz. &                 8.5 &      28.6 &          680 &          0.8 &         80 &             0.0 &           10.6 &              1.6 &          110 &                   0 \\
+Rice                    &       1 lb. &                 7.5 &      21.2 &          460 &          0.6 &         41 &             0.0 &            2.0 &              4.8 &           60 &                   0 \\
+Rolled Oats             &       1 lb. &                 7.1 &      25.3 &          907 &          5.1 &        341 &             0.0 &           37.1 &              8.9 &           64 &                   0 \\
+White Bread (Enriched)  &       1 lb. &                 7.9 &      15.0 &          488 &          2.5 &        115 &             0.0 &           13.8 &              8.5 &          126 &                   0 \\
+Whole Wheat Bread       &       1 lb. &                 9.1 &      12.2 &          484 &          2.7 &        125 &             0.0 &           13.9 &              6.4 &          160 &                   0 \\
+Rye Bread               &       1 lb. &                 9.1 &      12.4 &          439 &          1.1 &         82 &             0.0 &            9.9 &              3.0 &           66 &                   0 \\
+Pound Cake              &       1 lb. &                24.8 &       8.0 &          130 &          0.4 &         31 &            18.9 &            2.8 &              3.0 &           17 &                   0 \\
+Soda Crackers           &       1 lb. &                15.1 &      12.5 &          288 &          0.5 &         50 &             0.0 &            0.0 &              0.0 &            0 &                   0 \\
+Milk                    &       1 qt. &                11.0 &       6.1 &          310 &         10.5 &         18 &            16.8 &            4.0 &             16.0 &            7 &                 177 \\
+Evaporated Milk (can)   &    14.5 oz. &                 6.7 &       8.4 &          422 &         15.1 &          9 &            26.0 &            3.0 &             23.5 &           11 &                  60 \\
+Butter                  &       1 lb. &                30.8 &      10.8 &            9 &          0.2 &          3 &            44.2 &            0.0 &              0.2 &            2 &                   0 \\
+Oleomargarine           &       1 lb. &                16.1 &      20.6 &           17 &          0.6 &          6 &            55.8 &            0.2 &              0.0 &            0 &                   0 \\
+Eggs                    &      1 doz. &                32.6 &       2.9 &          238 &          1.0 &         52 &            18.6 &            2.8 &              6.5 &            1 &                   0 \\
+Cheese (Cheddar)        &       1 lb. &                24.2 &       7.4 &          448 &         16.4 &         19 &            28.1 &            0.8 &             10.3 &            4 &                   0 \\
+Cream                   &     1/2 pt. &                14.1 &       3.5 &           49 &          1.7 &          3 &            16.9 &            0.6 &              2.5 &            0 &                  17 \\
+Peanut Butter           &       1 lb. &                17.9 &      15.7 &          661 &          1.0 &         48 &             0.0 &            9.6 &              8.1 &          471 &                   0 \\
+Mayonnaise              &     1/2 pt. &                16.7 &       8.6 &           18 &          0.2 &          8 &             2.7 &            0.4 &              0.5 &            0 &                   0 \\
+Crisco                  &       1 lb. &                20.3 &      20.1 &            0 &          0.0 &          0 &             0.0 &            0.0 &              0.0 &            0 &                   0 \\
+Lard                    &       1 lb. &                 9.8 &      41.7 &            0 &          0.0 &          0 &             0.2 &            0.0 &              0.5 &            5 &                   0 \\
+Sirloin Steak           &       1 lb. &                39.6 &       2.9 &          166 &          0.1 &         34 &             0.2 &            2.1 &              2.9 &           69 &                   0 \\
+Round Steak             &       1 lb. &                36.4 &       2.2 &          214 &          0.1 &         32 &             0.4 &            2.5 &              2.4 &           87 &                   0 \\
+Rib Roast               &       1 lb. &                29.2 &       3.4 &          213 &          0.1 &         33 &             0.0 &            0.0 &              2.0 &            0 &                   0 \\
+Chuck Roast             &       1 lb. &                22.6 &       3.6 &          309 &          0.2 &         46 &             0.4 &            1.0 &              4.0 &          120 &                   0 \\
+Plate                   &       1 lb. &                14.6 &       8.5 &          404 &          0.2 &         62 &             0.0 &            0.9 &              0.0 &            0 &                   0 \\
+Liver (Beef)            &       1 lb. &                26.8 &       2.2 &          333 &          0.2 &        139 &           169.2 &            6.4 &             50.8 &          316 &                 525 \\
+Leg of Lamb             &       1 lb. &                27.6 &       3.1 &          245 &          0.1 &         20 &             0.0 &            2.8 &              3.9 &           86 &                   0 \\
+Lamb Chops (Rib)        &       1 lb. &                36.6 &       3.3 &          140 &          0.1 &         15 &             0.0 &            1.7 &              2.7 &           54 &                   0 \\
+Pork Chops              &       1 lb. &                30.7 &       3.5 &          196 &          0.2 &         30 &             0.0 &           17.4 &              2.7 &           60 &                   0 \\
+Pork Loin Roast         &       1 lb. &                24.2 &       4.4 &          249 &          0.3 &         37 &             0.0 &           18.2 &              3.6 &           79 &                   0 \\
+Bacon                   &       1 lb. &                25.6 &      10.4 &          152 &          0.2 &         23 &             0.0 &            1.8 &              1.8 &           71 &                   0 \\
+Ham, smoked             &       1 lb. &                27.4 &       6.7 &          212 &          0.2 &         31 &             0.0 &            9.9 &              3.3 &           50 &                   0 \\
+Salt Pork               &       1 lb. &                16.0 &      18.8 &          164 &          0.1 &         26 &             0.0 &            1.4 &              1.8 &            0 &                   0 \\
+Roasting Chicken        &       1 lb. &                30.3 &       1.8 &          184 &          0.1 &         30 &             0.1 &            0.9 &              1.8 &           68 &                  46 \\
+Veal Cutlets            &       1 lb. &                42.3 &       1.7 &          156 &          0.1 &         24 &             0.0 &            1.4 &              2.4 &           57 &                   0 \\
+Salmon, Pink (can)      &      16 oz. &                13.0 &       5.8 &          705 &          6.8 &         45 &             3.5 &            1.0 &              4.9 &          209 &                   0 \\
+Apples                  &       1 lb. &                 4.4 &       5.8 &           27 &          0.5 &         36 &             7.3 &            3.6 &              2.7 &            5 &                 544 \\
+Bananas                 &       1 lb. &                 6.1 &       4.9 &           60 &          0.4 &         30 &            17.4 &            2.5 &              3.5 &           28 &                 498 \\
+Lemons                  &      1 doz. &                26.0 &       1.0 &           21 &          0.5 &         14 &             0.0 &            0.5 &              0.0 &            4 &                 952 \\
+Oranges                 &      1 doz. &                30.9 &       2.2 &           40 &          1.1 &         18 &            11.1 &            3.6 &              1.3 &           10 &                1998 \\
+Green Beans             &       1 lb. &                 7.1 &       2.4 &          138 &          3.7 &         80 &            69.0 &            4.3 &              5.8 &           37 &                 862 \\
+Cabbage                 &       1 lb. &                 3.7 &       2.6 &          125 &          4.0 &         36 &             7.2 &            9.0 &              4.5 &           26 &                5369 \\
+Carrots                 &     1 bunch &                 4.7 &       2.7 &           73 &          2.8 &         43 &           188.5 &            6.1 &              4.3 &           89 &                 608 \\
+Celery                  &     1 stalk &                 7.3 &       0.9 &           51 &          3.0 &         23 &             0.9 &            1.4 &              1.4 &            9 &                 313 \\
+Lettuce                 &      1 head &                 8.2 &       0.4 &           27 &          1.1 &         22 &           112.4 &            1.8 &              3.4 &           11 &                 449 \\
+Onions                  &       1 lb. &                 3.6 &       5.8 &          166 &          3.8 &         59 &            16.6 &            4.7 &              5.9 &           21 &                1184 \\
+Potatoes                &      15 lb. &                34.0 &      14.3 &          336 &          1.8 &        118 &             6.7 &           29.4 &              7.1 &          198 &                2522 \\
+Spinach                 &       1 lb. &                 8.1 &       1.1 &          106 &          0.0 &        138 &           918.4 &            5.7 &             13.8 &           33 &                2755 \\
+Sweet Potatoes          &       1 lb. &                 5.1 &       9.6 &          138 &          2.7 &         54 &           290.7 &            8.4 &              5.4 &           83 &                1912 \\
+Peaches (can)           &   No. 2 1/2 &                16.8 &       3.7 &           20 &          0.4 &         10 &            21.5 &            0.5 &              1.0 &           31 &                 196 \\
+Pears (can)             &   No. 2 1/2 &                20.4 &       3.0 &            8 &          0.3 &          8 &             0.8 &            0.8 &              0.8 &            5 &                  81 \\
+Pineapple (can)         &   No. 2 1/2 &                21.3 &       2.4 &           16 &          0.4 &          8 &             2.0 &            2.8 &              0.8 &            7 &                 399 \\
+Asparagus (can)         &       No. 2 &                27.7 &       0.4 &           33 &          0.3 &         12 &            16.3 &            1.4 &              2.1 &           17 &                 272 \\
+Green Beans (can)       &       No. 2 &                10.0 &       1.0 &           54 &          2.0 &         65 &            53.9 &            1.6 &              4.3 &           32 &                 431 \\
+Pork and Beans (can)    &      16 oz. &                 7.1 &       7.5 &          364 &          4.0 &        134 &             3.5 &            8.3 &              7.7 &           56 &                   0 \\
+Corn (can)              &       No. 2 &                10.4 &       5.2 &          136 &          0.2 &         16 &            12.0 &            1.6 &              2.7 &           42 &                 218 \\
+Peas (can)              &       No. 2 &                13.8 &       2.3 &          136 &          0.6 &         45 &            34.9 &            4.9 &              2.5 &           37 &                 370 \\
+Tomatoes (can)          &       No. 2 &                 8.6 &       1.3 &           63 &          0.7 &         38 &            53.2 &            3.4 &              2.5 &           36 &                1253 \\
+Tomato Soup (can)       &  10 1/2 oz. &                 7.6 &       1.6 &           71 &          0.6 &         43 &            57.9 &            3.5 &              2.4 &           67 &                 862 \\
+Peaches, Dried          &       1 lb. &                15.7 &       8.5 &           87 &          1.7 &        173 &            86.8 &            1.2 &              4.3 &           55 &                  57 \\
+Prunes, Dried           &       1 lb. &                 9.0 &      12.8 &           99 &          2.5 &        154 &            85.7 &            3.9 &              4.3 &           65 &                 257 \\
+Raisins, Dried          &      15 oz. &                 9.4 &      13.5 &          104 &          2.5 &        136 &             4.5 &            6.3 &              1.4 &           24 &                 136 \\
+Peas, Dried             &       1 lb. &                 7.9 &      20.0 &         1367 &          4.2 &        345 &             2.9 &           28.7 &             18.4 &          162 &                   0 \\
+Lima Beans, Dried       &       1 lb. &                 8.9 &      17.4 &         1055 &          3.7 &        459 &             5.1 &           26.9 &             38.2 &           93 &                   0 \\
+Navy Beans, Dried       &       1 lb. &                 5.9 &      26.9 &         1691 &         11.4 &        792 &             0.0 &           38.4 &             24.6 &          217 &                   0 \\
+Coffee                  &       1 lb. &                22.4 &       0.0 &            0 &          0.0 &          0 &             0.0 &            4.0 &              5.1 &           50 &                   0 \\
+Tea                     &     1/4 lb. &                17.4 &       0.0 &            0 &          0.0 &          0 &             0.0 &            0.0 &              2.3 &           42 &                   0 \\
+Cocoa                   &       8 oz. &                 8.6 &       8.7 &          237 &          3.0 &         72 &             0.0 &            2.0 &             11.9 &           40 &                   0 \\
+Chocolate               &       8 oz. &                16.2 &       8.0 &           77 &          1.3 &         39 &             0.0 &            0.9 &              3.4 &           14 &                   0 \\
+Sugar                   &      10 lb. &                51.7 &      34.9 &            0 &          0.0 &          0 &             0.0 &            0.0 &              0.0 &            0 &                   0 \\
+Corn Syrup              &      24 oz. &                13.7 &      14.7 &            0 &          0.5 &         74 &             0.0 &            0.0 &              0.0 &            5 &                   0 \\
+Molasses                &      18 oz. &                13.6 &       9.0 &            0 &         10.3 &        244 &             0.0 &            1.9 &              7.5 &          146 &                   0 \\
+Strawberry Preserves    &       1 lb. &                20.5 &       6.4 &           11 &          0.4 &          7 &             0.2 &            0.2 &              0.4 &            3 &                   0 \\
+\bottomrule
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{solver }\OperatorTok{=}\NormalTok{ pywraplp.Solver.CreateSolver(}\StringTok{\textquotesingle{}GLOP\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Declare an array to hold our variables. (f = foods)}
+\NormalTok{foods }\OperatorTok{=}\NormalTok{ [solver.NumVar(}\FloatTok{0.0}\NormalTok{, solver.infinity(), item[}\DecValTok{0}\NormalTok{]) }\ControlFlowTok{for}\NormalTok{ item }\KeywordTok{in}\NormalTok{ data]}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Number of variables =\textquotesingle{}}\NormalTok{, solver.NumVariables())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Number of variables = 77
+\end{verbatim}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create the constraints, one per nutrient. (data = nutrients\_per\_dollar)}
+\CommentTok{\# gurobipy can express a lists or arrays of constraints with a nicer DSL }
+\CommentTok{\# instead of the many loops necessary with OR{-}Tools}
+\NormalTok{constraints }\OperatorTok{=}\NormalTok{ []}
+\ControlFlowTok{for}\NormalTok{ i, nutrient }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(nutrients):}
+\NormalTok{    constraints.append(solver.Constraint(nutrient[}\DecValTok{1}\NormalTok{], solver.infinity()))}
+    \ControlFlowTok{for}\NormalTok{ j, item }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(data):}
+\NormalTok{        constraints[i].SetCoefficient(foods[j], item[i }\OperatorTok{+} \DecValTok{3}\NormalTok{])}
+
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}Number of constraints =\textquotesingle{}}\NormalTok{, solver.NumConstraints())}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Number of constraints = 9
+\end{verbatim}
+
+\pause
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Objective function: Minimize the sum of (price{-}normalized) foods.}
+\NormalTok{objective }\OperatorTok{=}\NormalTok{ solver.Objective()}
+\ControlFlowTok{for}\NormalTok{ food }\KeywordTok{in}\NormalTok{ foods:}
+\NormalTok{    objective.SetCoefficient(food, }\DecValTok{1}\NormalTok{)}
+\NormalTok{objective.SetMinimization()}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{status }\OperatorTok{=}\NormalTok{ solver.Solve()}
+
+\CommentTok{\# Check that the problem has an optimal solution.}
+\ControlFlowTok{if}\NormalTok{ status }\OperatorTok{!=}\NormalTok{ solver.OPTIMAL:}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}The problem does not have an optimal solution!\textquotesingle{}}\NormalTok{)}
+    \ControlFlowTok{if}\NormalTok{ status }\OperatorTok{==}\NormalTok{ solver.FEASIBLE:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}A potentially suboptimal solution was found.\textquotesingle{}}\NormalTok{)}
+    \ControlFlowTok{else}\NormalTok{:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}The solver could not solve the problem.\textquotesingle{}}\NormalTok{)}
+\NormalTok{        exit(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Display the amounts (in dollars) to purchase of each food.}
+\NormalTok{nutrients\_result }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{] }\OperatorTok{*} \BuiltInTok{len}\NormalTok{(nutrients)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Annual Foods:\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ i, food }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(foods):}
+    \ControlFlowTok{if}\NormalTok{ food.solution\_value() }\OperatorTok{\textgreater{}} \FloatTok{0.0}\NormalTok{:}
+        \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\SpecialCharTok{\{\}}\StringTok{: $}\SpecialCharTok{\{\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(data[i][}\DecValTok{0}\NormalTok{], }\FloatTok{365.} \OperatorTok{*}\NormalTok{ food.solution\_value()))}
+        \ControlFlowTok{for}\NormalTok{ j, \_ }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(nutrients):}
+\NormalTok{            nutrients\_result[j] }\OperatorTok{+=}\NormalTok{ data[i][j }\OperatorTok{+} \DecValTok{3}\NormalTok{] }\OperatorTok{*}\NormalTok{ food.solution\_value()}
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Optimal annual price: $}\SpecialCharTok{\{:.4f\}}\StringTok{\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(}\FloatTok{365.} \OperatorTok{*}\NormalTok{ objective.Value()))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Annual Foods:
+Wheat Flour (Enriched): $10.774457511918223
+Liver (Beef): $0.6907834111074193
+Cabbage: $4.093268864842877
+Spinach: $1.8277960703546996
+Navy Beans, Dried: $22.275425687243036
+
+Optimal annual price: $39.6617
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\CharTok{\textbackslash{}n}\StringTok{Nutrients per day:\textquotesingle{}}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ i, nutrient }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(nutrients):}
+    \BuiltInTok{print}\NormalTok{(}\StringTok{\textquotesingle{}}\SpecialCharTok{\{\}}\StringTok{: }\SpecialCharTok{\{:.2f\}}\StringTok{ (min }\SpecialCharTok{\{\}}\StringTok{)\textquotesingle{}}\NormalTok{.}\BuiltInTok{format}\NormalTok{(nutrient[}\DecValTok{0}\NormalTok{], nutrients\_result[i],}
+\NormalTok{                                       nutrient[}\DecValTok{1}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+Nutrients per day:
+Calories (kcal): 3.00 (min 3)
+Protein (g): 147.41 (min 70)
+Calcium (g): 0.80 (min 0.8)
+Iron (mg): 60.47 (min 12)
+Vitamin A (KIU): 5.00 (min 5)
+Vitamin B1 (mg): 4.12 (min 1.8)
+Vitamin B2 (mg): 2.70 (min 2.7)
+Niacin (mg): 27.32 (min 18)
+Vitamin C (mg): 75.00 (min 75)
+\end{verbatim}
+
+\begin{block}{Stieglers diet remarks}
+\protect\hypertarget{stieglers-diet-remarks}{}
+\begin{quote}
+``No one recommends these diets for anyone, let alone everyone.''
+(Stigler)
+\end{quote}
+
+My observation: The amount of iron for spinach is 10x as high as in
+reality. Fixing this does not change the result. So why is spinach
+included in the diet?
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nutrient\_per\_food }\OperatorTok{=}\NormalTok{ \{\}}
+
+\ControlFlowTok{for}\NormalTok{ i, food }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(foods):}
+    \ControlFlowTok{if}\NormalTok{ food.solution\_value() }\OperatorTok{\textgreater{}} \FloatTok{0.0}\NormalTok{:      }
+        \ControlFlowTok{for}\NormalTok{ j, nutrient }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(nutrients):}
+            \ControlFlowTok{if}\NormalTok{ food }\KeywordTok{in}\NormalTok{ nutrient\_per\_food:}
+\NormalTok{                nutrient\_per\_food[food].append(data[i][j }\OperatorTok{+} \DecValTok{3}\NormalTok{] }\OperatorTok{*}\NormalTok{ food.solution\_value())}
+            \ControlFlowTok{else}\NormalTok{:}
+\NormalTok{                nutrient\_per\_food[food]}\OperatorTok{=}\NormalTok{[data[i][j }\OperatorTok{+} \DecValTok{3}\NormalTok{] }\OperatorTok{*}\NormalTok{ food.solution\_value()]}
+                
+\NormalTok{foods\_df }\OperatorTok{=}\NormalTok{ pd.DataFrame.from\_dict(nutrient\_per\_food, orient}\OperatorTok{=}\StringTok{\textquotesingle{}index\textquotesingle{}}\NormalTok{, columns}\OperatorTok{=}\NormalTok{[n[}\DecValTok{0}\NormalTok{] }\ControlFlowTok{for}\NormalTok{ n }\KeywordTok{in}\NormalTok{ nutrients])}
+
+\ControlFlowTok{for}\NormalTok{ i, nutrient }\KeywordTok{in} \BuiltInTok{enumerate}\NormalTok{(nutrients):}
+\NormalTok{    foods\_df[nutrient[}\DecValTok{0}\NormalTok{]]}\OperatorTok{=}\NormalTok{(foods\_df[nutrient[}\DecValTok{0}\NormalTok{]]}\OperatorTok{/}\NormalTok{nutrients\_result[i]}\OperatorTok{*}\DecValTok{100}\NormalTok{).}\BuiltInTok{round}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+
+\NormalTok{display(foods\_df)                 }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+{} &  Calories (kcal) &  Protein (g) &  Calcium (g) &  Iron (mg) &  Vitamin A (KIU) &  Vitamin B1 (mg) &  Vitamin B2 (mg) &  Niacin (mg) &  Vitamin C (mg) \\
+\midrule
+Wheat Flour (Enriched) &            43.98 &        28.25 &         7.38 &      17.82 &             0.00 &            39.69 &            36.41 &        47.66 &            0.00 \\
+Liver (Beef)           &             0.14 &         0.43 &         0.05 &       0.44 &             6.40 &             0.29 &             3.56 &         2.19 &            1.32 \\
+Cabbage                &             0.97 &         0.95 &         5.61 &       0.67 &             1.61 &             2.45 &             1.87 &         1.07 &           80.28 \\
+Spinach                &             0.18 &         0.36 &         0.00 &       1.14 &            91.98 &             0.69 &             2.56 &         0.60 &           18.39 \\
+Navy Beans, Dried      &            54.72 &        70.01 &        86.97 &      79.94 &             0.00 &            56.87 &            55.60 &        48.48 &            0.00 \\
+\bottomrule
+\end{tabular}
+
+\begin{block}{The end}
+\protect\hypertarget{the-end}{}
+Google OR-Tools seem the best free open-source tool for solving OR
+problems:
+
+\begin{itemize}
+\tightlist
+\item
+  good documentation
+\item
+  many examples
+\item
+  gurobipy has a nicer DSL for defining lists/arrays of constraints
+\item
+  gurobipy free trial is limited to 2000 variables, OR-Tools are
+  unlimited
+\end{itemize}
+
+\textbf{Next session}: How to solve the facility location problem with
+OR-Tools and apply that to solve the Shell Hackathon.
+
+{Eat your spinach - Not for the iron, but for the Vitamin A!}
+\end{block}
+\end{frame}
+
+
+
+\end{document}
